@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101236">
+  <title>{{ page_title }}</title>
+  <meta name="description" content="{{ page_description }}">
+  {% if canonical_url %}<link rel="canonical" href="{{ canonical_url }}">{% endif %}
+  <meta property="og:title" content="{{ page_title }}">
+  <meta property="og:description" content="{{ page_description }}">
+  <meta property="og:type" content="website">
+  {% if canonical_url %}<meta property="og:url" content="{{ canonical_url }}">{% endif %}
+  {% if canonical_url %}<meta property="og:image" content="{{ canonical_url.split('/', 3)[:3]|join('/') }}/static/images/hero-adventure.webp">{% endif %}
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg">
+  <link rel="stylesheet" href="/static/css/style.css?v=1">
+  <script src="/static/js/main.js?v=1" defer></script>
+</head>
+<body data-page="{{ page_slug }}" data-static="{{ 'true' if is_static else 'false' }}">
+  {% from '_components.html' import icon with context %}
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner container">
+      <a class="brand" href="/" aria-label="Infinity Stream TV home"><span class="brand-art" role="img" aria-label="Infinity Stream TV"></span></a>
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="/" {% if page_slug == 'home' %}aria-current="page"{% endif %}>Home</a>
+        <a href="/channels?category=live-tv">Live TV</a>
+        <a href="/channels?category=movies">Movies</a>
+        <a href="/channels?category=series">Series</a>
+        <a href="/channels#countries">Countries</a>
+        <a href="/pricing" {% if page_slug == 'pricing' %}aria-current="page"{% endif %}>Pricing</a>
+        <a href="/reseller" {% if page_slug == 'reseller' %}aria-current="page"{% endif %}>Reseller</a>
+        <a href="/devices" {% if page_slug == 'devices' %}aria-current="page"{% endif %}>Apps</a>
+        <a href="/contact" {% if page_slug == 'contact' %}aria-current="page"{% endif %}>Support</a>
+      </nav>
+      <div class="header-actions">
+        <span class="language" title="English. Arabic support is planned.">{{ icon('globe') }}<span>English</span></span>
+        <a class="btn btn-primary header-trial" href="{{ whatsapp_url('trial') }}" data-whatsapp="trial" target="_blank" rel="noopener noreferrer">Request a Trial {{ icon('arrow') }}</a>
+        <button class="menu-toggle icon-button" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-nav">{{ icon('menu') }}</button>
+      </div>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
+      <a href="/">Home</a><a href="/channels?category=live-tv">Live TV</a><a href="/channels?category=movies">Movies</a><a href="/channels?category=series">Series</a><a href="/channels#countries">Countries</a><a href="/pricing">Pricing</a><a href="/reseller">Reseller</a><a href="/devices">Apps & Devices</a><a href="/contact">Support</a>
+    </nav>
+  </header>
+  <main id="main-content">{% block content %}{% endblock %}</main>
+  <footer class="site-footer">
+    <div class="container footer-top">
+      <div class="footer-brand"><a class="brand" href="/" aria-label="Infinity Stream TV home"><span class="brand-art" role="img" aria-label="Infinity Stream TV"></span></a><p>A world of entertainment.<br>A little closer to you.</p></div>
+      <div class="footer-links"><h2>Explore</h2><a href="/channels">Content library</a><a href="/pricing">Subscription plans</a><a href="/reseller">Become a reseller</a></div>
+      <div class="footer-links"><h2>Need a hand?</h2><a href="/devices">Apps & devices</a><a href="/devices#setup-guide">Setup guide</a><a href="/faq">Frequently asked questions</a><a href="/contact">Contact & support</a></div>
+      <div class="footer-contact"><h2>Let’s talk entertainment</h2><p>Ask about availability, your device,<br>or the right plan for you.</p><a href="{{ whatsapp_url() }}" data-whatsapp="general" target="_blank" rel="noopener noreferrer">{{ icon('whatsapp') }} {{ site.settings.whatsapp_display }}</a></div>
+    </div>
+    <div class="container footer-bottom"><span>© {{ current_year }} Infinity Stream TV. All rights reserved.</span><div><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/refund-policy">Refund policy</a></div></div>
+  </footer>
+  <a class="floating-whatsapp" href="{{ whatsapp_url() }}" data-whatsapp="general" aria-label="Chat with Infinity Stream TV on WhatsApp" target="_blank" rel="noopener noreferrer">{{ icon('whatsapp') }}</a>
+  <script id="site-config" type="application/json">{{ site|tojson }}</script>
+</body>
+</html>

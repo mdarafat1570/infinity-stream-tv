@@ -1,0 +1,76 @@
+{% macro icon(name, extra_class='') -%}
+<svg class="icon {{ extra_class }}" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+{% if name in ['arrow','arrow-right'] %}<path d="M4 12h15m-6-6 6 6-6 6"/>
+{% elif name == 'chevron' %}<path d="m9 5 7 7-7 7"/>
+{% elif name == 'menu' %}<path d="M4 6h16M4 12h16M4 18h16"/>
+{% elif name == 'close' %}<path d="m5 5 14 14M5 19 19 5"/>
+{% elif name in ['globe','international'] %}<circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18M5 7h14M5 17h14"/>
+{% elif name in ['play','movies'] %}<path d="m9 5 11 7-11 7z"/>
+{% elif name in ['tv','live-tv','smart-tv','monitor','desktop'] %}<rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 22h8m-4-4v4"/>
+{% elif name in ['phone','android','ios','mobile','apple'] %}<rect x="6" y="2" width="12" height="20" rx="3"/><path d="M10 5h4m-3 14h2"/>
+{% elif name in ['support','headphones','headset'] %}<path d="M4 14v-3a8 8 0 0 1 16 0v3m0 2v2a3 3 0 0 1-3 3h-3"/><rect x="2" y="11" width="4" height="7" rx="2"/><rect x="18" y="11" width="4" height="7" rx="2"/>
+{% elif name in ['check','check-circle'] %}<circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/>
+{% elif name in ['shield','quality'] %}<path d="m12 2 9 4v6c0 5-9 10-9 10S3 17 3 12V6z"/><path d="m8 11 3 3 5-6"/>
+{% elif name in ['bolt','activation'] %}<path d="m14 2-9 12h7l-2 8 9-12h-7z"/>
+{% elif name in ['crown','basic','premium'] %}<path d="m3 6 4 5 5-8 5 8 4-5-2 12H5zM6 22h12"/>
+{% elif name in ['users','reseller'] %}<circle cx="9" cy="7" r="3"/><path d="M2 21v-3a7 7 0 0 1 14 0v3m1-17a3 3 0 0 1 0 6m3 11v-3a7 7 0 0 0-3-6"/>
+{% elif name in ['film','series'] %}<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 3v18M17 3v18M3 8h4m-4 8h4m10-8h4m-4 8h4"/>
+{% elif name in ['sports','ball'] %}<circle cx="12" cy="12" r="9"/><path d="m12 7 5 4-2 6H9l-2-6zM12 3v4m-9 5 4-1m2 6-2 3m8-3 2 3m0-9 4 1"/>
+{% elif name == 'star' %}<path d="m12 2 3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/>
+{% elif name == 'diamond' %}<path d="m7 3-5 6 10 13 10-13-5-6zM2 9h20M7 3l5 19 5-19M7 3h10"/>
+{% elif name == 'laptop' %}<rect x="4" y="3" width="16" height="13" rx="2"/><path d="M2 20h20l-2-4H4z"/>
+{% elif name == 'fire' %}<path d="M13 2c2 7-3 6-1 11 2-1 3-3 3-5 5 4 7 9 2 13-3 2-8 1-10-2-3-5 1-10 6-17Z"/>
+{% elif name in ['kids','heart'] %}<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/>
+{% elif name in ['arabic','sun'] %}<circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1 1m12 12 1 1M5 19l1-1M18 6l1-1"/>
+{% elif name in ['documentaries','compass'] %}<circle cx="12" cy="12" r="9"/><path d="m16 8-3 5-5 3 3-5z"/>
+{% elif name in ['book','guide'] %}<path d="M12 5C8 2 3 3 3 3v17s5-1 9 2c4-3 9-2 9-2V3s-5-1-9 2zm0 0v17"/>
+{% elif name == 'mail' %}<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 6 10 7L22 6"/>
+{% elif name == 'whatsapp' %}<path d="M20.5 3.5A11 11 0 0 0 3.1 16.6L2 22l5.5-1.1A11 11 0 0 0 20.5 3.5Z"/><path d="M8 6.8c-.6-.1-1.5 1-1.3 2.3.4 3 4.1 6.9 7.7 7.1 1.4.1 2.5-1.2 2.1-1.8l-2.4-1.3-1.2 1c-1.5-.6-2.8-1.9-3.5-3.4l.9-1.1Z"/>
+{% elif name == 'more' %}<circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/>
+{% elif name == 'search' %}<circle cx="10" cy="10" r="6"/><path d="m15 15 6 6"/>
+{% else %}<rect x="4" y="4" width="16" height="16" rx="4"/><path d="m8 12 3 3 5-6"/>{% endif %}
+</svg>
+{%- endmacro %}
+
+{% macro categories() %}
+<div class="category-grid">
+{% for category in site.categories %}<a class="category-card" href="/channels?category={{ category.slug }}" data-category="{{ category.slug }}"><img src="{{ category.image }}" alt="" loading="lazy" width="320" height="480"><div class="category-content"><span class="category-label"><span class="category-icon">{{ icon(category.icon|default(category.slug)) }}</span>{{ category.name }}</span><p>{{ category.description }}</p></div></a>{% endfor %}
+</div>
+{% endmacro %}
+
+{% macro pricing() %}
+<div class="pricing-controls" aria-label="Billing period"><div class="billing-tabs" role="group" aria-label="Choose a billing period">{% for period in site.billing_periods %}<button type="button" class="billing-tab {{ 'active' if loop.first }}" data-period="{{ period.slug }}" aria-pressed="{{ 'true' if loop.first else 'false' }}">{{ period.name }}<small>{{ period.label }}</small></button>{% endfor %}</div></div>
+<div class="pricing-grid">
+{% for plan in site.plans %}
+  <article class="plan-card {{ 'featured' if plan.highlighted }}">
+    {% if plan.highlighted %}<span class="plan-badge">Explore Premium</span>{% endif %}
+    <div class="plan-title">{{ icon(plan.icon|default('crown')) }}<h3>{{ plan.name }}</h3></div>
+    <p class="plan-description">{{ plan.description }}</p>
+    <div class="plan-price" data-price="{{ plan.slug }}">
+      {% if plan.periods.monthly.price is not none %}
+      <strong>{{ plan.periods.monthly.currency }} {{ plan.periods.monthly.price }}</strong><span>{{ plan.periods.monthly.label }}</span>
+      {% else %}<strong>Let’s find your plan</strong><span>Ask us for current pricing</span>{% endif %}
+    </div>
+    <ul class="feature-list">{% for feature in plan.features %}<li>{{ icon('check') }}{{ feature }}</li>{% endfor %}</ul>
+    <a class="btn {{ 'btn-primary' if plan.highlighted or plan.slug == 'reseller' else 'btn-outline' }} plan-cta" href="{{ whatsapp_url(plan.name, period='monthly') }}" data-whatsapp="plan" data-plan="{{ plan.slug }}" target="_blank" rel="noopener noreferrer">{{ 'Enquire about reselling' if plan.slug == 'reseller' else 'Chat on WhatsApp' }}{{ icon('arrow') }}</a>
+  </article>
+{% endfor %}
+</div><p class="pricing-note">Current prices, available content, and connection limits are confirmed with you before purchase.</p>
+{% endmacro %}
+
+{% macro faqs(limit=none) %}
+<div class="faq-list">{% for item in (site.faq[:limit] if limit else site.faq) %}<details class="faq-item"><summary>{{ item.question }}<span aria-hidden="true">+</span></summary><div class="faq-answer"><p>{{ item.answer }}</p></div></details>{% endfor %}</div>
+{% endmacro %}
+
+{% macro enquiry_form(kind='contact') %}
+<form class="enquiry-form info-panel" method="post" action="/enquiry" data-enquiry-form>
+<h2>{{ 'Tell us about your business' if kind == 'reseller' else 'How can we help?' }}</h2><p>Share a few details, then review your enquiry in WhatsApp.</p>
+{% if form_errors.get('_form') %}<div class="form-error" role="alert">{{ form_errors['_form'] }}</div>{% endif %}
+<input type="hidden" name="csrf_token" value="{{ csrf_token }}"><input type="hidden" name="source_page" value="{{ kind }}"><input type="hidden" name="plan" value="{{ 'reseller' if kind == 'reseller' else form_data.get('plan','general') }}">
+<div class="honeypot" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
+<div class="form-row"><div class="form-field"><label for="enquiry-name">Your name <span>*</span></label><input id="enquiry-name" name="name" autocomplete="name" minlength="2" maxlength="80" required value="{{ form_data.get('name','') }}" placeholder="Your full name">{% if form_errors.get('name') %}<span class="form-error">{{ form_errors.name }}</span>{% endif %}</div><div class="form-field"><label for="enquiry-country">Country <span>*</span></label><input id="enquiry-country" name="country" autocomplete="country-name" minlength="2" maxlength="80" required value="{{ form_data.get('country','') }}" placeholder="Where will you be watching?">{% if form_errors.get('country') %}<span class="form-error">{{ form_errors.country }}</span>{% endif %}</div></div>
+<div class="form-row"><div class="form-field"><label for="contact-method">Preferred contact <span>*</span></label><select name="contact_method" id="contact-method"><option value="whatsapp" {{ 'selected' if form_data.get('contact_method') != 'email' }}>WhatsApp</option><option value="email" {{ 'selected' if form_data.get('contact_method') == 'email' }}>Email</option></select></div><div class="form-field"><label for="enquiry-contact">Phone number or email <span>*</span></label><input id="enquiry-contact" name="contact" required maxlength="200" value="{{ form_data.get('contact','') }}" placeholder="Include your country code">{% if form_errors.get('contact') %}<span class="form-error">{{ form_errors.contact }}</span>{% endif %}</div></div>
+<div class="form-field"><label for="enquiry-message">Your message <span>*</span></label><textarea id="enquiry-message" name="message" required minlength="10" maxlength="2000" rows="4" placeholder="Tell us about your device, preferred content, or the plan you’re interested in.">{{ form_data.get('message','') }}</textarea>{% if form_errors.get('message') %}<span class="form-error">{{ form_errors.message }}</span>{% endif %}</div>
+<p class="form-privacy">{% if is_static %}Your details are included in a WhatsApp draft. This website does not save this form.{% else %}Your enquiry is saved so our team can assist you.{% endif %} See our <a href="/privacy">privacy policy</a>.</p><button class="btn btn-primary" type="submit">Continue to WhatsApp {{ icon('arrow') }}</button><p class="form-feedback" role="status" aria-live="polite"></p>
+</form>
+{% endmacro %}

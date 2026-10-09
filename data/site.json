@@ -1,0 +1,120 @@
+{
+  "brand": {
+    "name": "Infinity Stream TV",
+    "tagline": "Your world of entertainment",
+    "description": "Explore entertainment, find the right plan, and get personal setup guidance."
+  },
+  "settings": {
+    "whatsapp_phone": "8801310993838",
+    "whatsapp_display": "+880 1310 993838",
+    "trial_enabled": false,
+    "trial_hours": null,
+    "availability_note": "Channel availability, device support and plan details are confirmed before you subscribe.",
+    "business_email": null,
+    "legal_reviewed": false
+  },
+  "billing_periods": [
+    {"slug": "monthly", "name": "Monthly", "label": "Keep it flexible"},
+    {"slug": "quarterly", "name": "Quarterly", "label": "A little longer"},
+    {"slug": "yearly", "name": "Yearly", "label": "Plan ahead"}
+  ],
+  "plans": [
+    {
+      "slug": "basic",
+      "name": "Basic Plan",
+      "description": "A simple place to start.",
+      "highlighted": false,
+      "icon": "crown",
+      "features": ["Ask about live TV", "Explore the content catalogue", "Check your device compatibility", "Get setup guidance", "Enquire about subscription support"],
+      "periods": {
+        "monthly": {"price": null, "currency": "USD", "label": "per month"},
+        "quarterly": {"price": null, "currency": "USD", "label": "per quarter"},
+        "yearly": {"price": null, "currency": "USD", "label": "per year"}
+      }
+    },
+    {
+      "slug": "standard",
+      "name": "Standard Plan",
+      "description": "Find a plan for your everyday viewing.",
+      "highlighted": false,
+      "icon": "crown",
+      "features": ["Discuss your viewing preferences", "Ask about movies & series", "Check simultaneous connections", "Get device setup guidance", "Confirm the latest plan details"],
+      "periods": {
+        "monthly": {"price": null, "currency": "USD", "label": "per month"},
+        "quarterly": {"price": null, "currency": "USD", "label": "per quarter"},
+        "yearly": {"price": null, "currency": "USD", "label": "per year"}
+      }
+    },
+    {
+      "slug": "premium",
+      "name": "Premium Plan",
+      "description": "Explore more possibilities for your home.",
+      "highlighted": true,
+      "icon": "crown",
+      "features": ["Explore available entertainment", "Ask about picture quality", "Discuss multi-device options", "Get personalized setup guidance", "Confirm your subscription options"],
+      "periods": {
+        "monthly": {"price": null, "currency": "USD", "label": "per month"},
+        "quarterly": {"price": null, "currency": "USD", "label": "per quarter"},
+        "yearly": {"price": null, "currency": "USD", "label": "per year"}
+      }
+    },
+    {
+      "slug": "reseller",
+      "name": "Reseller Plan",
+      "description": "Start a conversation about partnering.",
+      "highlighted": false,
+      "icon": "users",
+      "features": ["Discuss partnership eligibility", "Ask about reseller packages", "Confirm tools and access", "Explore onboarding options", "Get clear commercial terms"],
+      "periods": {
+        "monthly": {"price": null, "currency": "USD", "label": "per month"},
+        "quarterly": {"price": null, "currency": "USD", "label": "per quarter"},
+        "yearly": {"price": null, "currency": "USD", "label": "per year"}
+      }
+    }
+  ],
+  "categories": [
+    {"slug": "live-tv", "name": "Live TV", "description": "Stay in the moment", "image": "/static/images/category-live-tv.webp", "icon": "tv"},
+    {"slug": "movies", "name": "Movies", "description": "Make it a movie night", "image": "/static/images/category-movies.webp", "icon": "film"},
+    {"slug": "series", "name": "Series & Dramas", "description": "Find your next story", "image": "/static/images/category-series.webp", "icon": "series"},
+    {"slug": "sports", "name": "Sports", "description": "Feel every moment", "image": "/static/images/category-sports.webp", "icon": "ball"},
+    {"slug": "arabic", "name": "Arabic", "description": "Entertainment in Arabic", "image": "/static/images/category-arabic.webp", "icon": "globe"},
+    {"slug": "kids", "name": "Kids", "description": "Little viewers, big worlds", "image": "/static/images/category-kids.webp", "icon": "star"},
+    {"slug": "documentary", "name": "Documentaries", "description": "Discover something new", "image": "/static/images/category-documentaries.webp", "icon": "compass"},
+    {"slug": "international", "name": "International", "description": "Stories around the world", "image": "/static/images/category-international.webp", "icon": "globe"}
+  ],
+  "countries": [
+    {"code": "SA", "name": "Saudi Arabia", "flag": "🇸🇦"},
+    {"code": "AE", "name": "UAE", "flag": "🇦🇪"},
+    {"code": "QA", "name": "Qatar", "flag": "🇶🇦"},
+    {"code": "KW", "name": "Kuwait", "flag": "🇰🇼"},
+    {"code": "US", "name": "USA", "flag": "🇺🇸"},
+    {"code": "GB", "name": "UK", "flag": "🇬🇧"},
+    {"code": "TR", "name": "Turkey", "flag": "🇹🇷"},
+    {"code": "IN", "name": "India", "flag": "🇮🇳"},
+    {"code": "PK", "name": "Pakistan", "flag": "🇵🇰"},
+    {"code": "BD", "name": "Bangladesh", "flag": "🇧🇩"}
+  ],
+  "devices": [
+    {"name": "Android", "label": "Phones & tablets", "description": "Tell us your Android model for a compatibility check.", "icon": "android"},
+    {"name": "iOS", "label": "iPhone & iPad", "description": "Ask which player and setup works for your device.", "icon": "apple"},
+    {"name": "Smart TV", "label": "Your big screen", "description": "Share the TV brand, model and year before subscribing.", "icon": "tv"},
+    {"name": "Windows / Mac", "label": "Desktop & laptop", "description": "Confirm the compatible player and operating system.", "icon": "laptop"},
+    {"name": "Fire TV", "label": "Streaming devices", "description": "Check your streaming device and player requirements.", "icon": "fire"},
+    {"name": "IPTV players", "label": "Ask about setup", "description": "Confirm the app and connection format with our team.", "icon": "play"}
+  ],
+  "why_us": [
+    {"title": "Your kind of viewing", "description": "Explore the available catalogue", "icon": "diamond"},
+    {"title": "Clear plan details", "description": "Confirm everything before you join", "icon": "shield"},
+    {"title": "Personal guidance", "description": "Talk to us on WhatsApp", "icon": "headphones"},
+    {"title": "Simple next steps", "description": "Ask, choose and get set up", "icon": "bolt"}
+  ],
+  "faq": [
+    {"question": "Which devices can I use?", "answer": "Share your device brand, model and preferred player with us. We will confirm compatibility and the setup requirements before you subscribe."},
+    {"question": "Can I request a free trial?", "answer": "Ask our team whether a trial is currently available. Eligibility, duration and any limits will be confirmed before a trial is arranged."},
+    {"question": "How do I activate a subscription?", "answer": "Choose a plan to enquire about on WhatsApp. Our team will confirm current pricing, available content, device compatibility and activation steps before you decide."},
+    {"question": "How many devices can I use at once?", "answer": "The connection allowance depends on the package offered. Tell us how many devices you want to use and confirm the simultaneous connection limit before subscribing."},
+    {"question": "Which payment methods are available?", "answer": "Our team will share the payment methods available for your location when you enquire. This website does not collect payment or card details."},
+    {"question": "How can I contact support?", "answer": "Use our WhatsApp contact or the enquiry form. Share your device details and a short description of the issue, and ask about current support availability."},
+    {"question": "What are the cancellation and refund terms?", "answer": "Ask for the current cancellation and refund terms before paying. Eligibility and any limits must be confirmed in writing as part of your subscription offer."}
+  ]
+}
