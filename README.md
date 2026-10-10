@@ -25,7 +25,7 @@ Edit `data/site.json` to update plan names, features and the `monthly`, `quarter
 
 The initial configuration deliberately leaves prices and trial duration unset. The copy asks visitors to confirm current content, compatibility, connection limits, trial availability, payment options and subscription terms with the business. No customer testimonials, content counts, uptime promises or invented prices are included. Business-specific terms, operator identity and policies should be completed with confirmed information before public launch.
 
-The primary sales contact is **+880 1310 993838**, configured as digits-only `8801310993838`. Every plan CTA creates a WhatsApp message naming that plan and the selected billing period. Opening WhatsApp prepares a message for the visitor to review and send; it does not send anything automatically.
+The primary sales contact is **+880 1874 608217**, configured as digits-only `8801874608217`. Every plan CTA creates a WhatsApp message naming that plan and the selected billing period. Opening WhatsApp prepares a message for the visitor to review and send; it does not send anything automatically.
 
 ## Enquiry behavior
 

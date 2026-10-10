@@ -4,8 +4,10 @@ The logo is the exact supplied image. Generated artwork was created with the bui
 
 ## Supplied brand
 
-- `brand-original.jpg`: untouched copy of `C:\Users\arafat\Downloads\654532472_952749777108433_4688737614288253300_n.jpg`, 1536 × 1024, matching the user's second attached image.
-- `brand-logo.webp`: full unchanged canvas encoded as WebP at quality 95, 1536 × 1024.
+- `brand-original.jpg`: untouched copy of the originally supplied `654532472_952749777108433_4688737614288253300_n.jpg`, 1536 × 1024. Superseded as the active header/footer logo by the asset below, kept for history.
+- `brand-logo-source.png`: untouched copy of the current supplied logo artwork (transparent PNG, 2172 × 724), excluded from the hosted export (source-only).
+- `brand-logo.webp`: the full current logo (icon + "Infinity Stream TV" wordmark), trimmed to its visible content and encoded as WebP at quality 95, 2122 × 601. Used for the header and footer brand mark via `background-size:contain`.
+- `brand-icon.webp`: the icon mark only (infinity loop + accent cubes), cropped from the same source and encoded as WebP at quality 95, 981 × 545. Used for the small decorative brand badges inside the illustrative TV and phone mockups on the homepage hero.
 - `reference.png`: untouched copy of `Infinity Stream TV Landing Page.png`, 1024 × 1536, retained only as visual implementation reference and excluded from the hosted export.
 
 ## Hero and series
@@ -78,6 +80,96 @@ Prompt:
 ## Hero generation prompt (built-in image_gen)
 
 Use case: photorealistic-natural. Asset type: cinematic streaming website artwork, a wide landscape 16:9 image to appear inside TV and device interfaces. Primary request: an original breathtaking cinematic mountain wilderness at blue hour, a lone tiny explorer in an orange jacket standing on a rocky ridge looking toward a vast alpine lake and towering dramatic mountains with low mist, cool blue foreground, subtle golden sunset on the horizon. Premium adventure movie cinematography, realistic texture and natural atmosphere, striking depth, blue/indigo tones with warm pink-orange highlights that match the supplied Infinity Stream TV visual direction. Wide composition, quiet usable space on left for HTML overlay, central/right mountain peak. No text, no logos, no interface, no watermarks, no known characters or existing movie imagery.
+
+## Netflix-style homepage rows (2026-10-10)
+
+Added for the homepage "Movies", "Series" and "Live TV" horizontal browsing rows (`data/site.json`'s `movies_row`, `series_row` and `live_tv_row`). Generated with the Figma AI image-generation tool (model `gemini-3.1-flash-lite-image`), downloaded immediately, then resized/cropped and encoded locally with Pillow. As with every other category image in this file, genres are illustrated generically: anonymous original characters/scenes only, no real movie or show titles, no franchise characters, no celebrities, and no channel or broadcaster branding.
+
+The business owner asked to keep the homepage visually light rather than dense, so each row ships with 4 representative genre cards (12 images total) rather than a full 8-per-row set. The 4 genres per row below were chosen as the most broadly representative of each content type.
+
+### Movies posters (`static/images/movies/`)
+
+Each original download is 848 × 1264; each project WebP is proportionally center-cropped and resized to 600 × 900, quality 84.
+
+#### action.webp
+
+Prompt:
+
+> Photorealistic original cinematic action movie still for a premium streaming website movie category card. Portrait 2:3 aspect ratio. An anonymous athletic silhouette figure in dark tactical-style original clothing leaping between two rain-slicked rooftops at night, a city skyline glowing with orange and teal light behind, motion blur on debris, dramatic high-contrast cinematic color grading, intense but tasteful action energy. No franchise characters, celebrities, logos, text, typography, signage, brands, watermarks, weapons with visible branding, or graphics. Full bleed portrait image with a darker natural lower area suitable for a webpage label.
+
+#### drama.webp
+
+Prompt:
+
+> Photorealistic original cinematic drama movie still for a premium streaming website movie category card. Portrait 2:3 aspect ratio. An anonymous original character sitting alone at a rain-streaked window in warm lamplight, pensive contemplative expression, soft amber and cool blue color contrast, intimate emotional atmosphere, shallow depth of field, realistic skin and fabric texture. No recognizable celebrities, logos, text, typography, brands, watermarks, or graphics. Full bleed portrait composition with a darker natural lower area.
+
+#### comedy.webp
+
+Prompt:
+
+> Photorealistic original cinematic comedy movie still for a premium streaming website movie category card. Portrait 2:3 aspect ratio. Two anonymous original characters mid laugh at a sunlit outdoor cafe table, warm golden-hour light, bright cheerful color palette, candid joyful body language, lighthearted tone. No recognizable celebrities, logos, text, typography, brands, watermarks, or graphics. Full bleed portrait composition with a slightly darker natural lower area.
+
+#### thriller.webp
+
+Prompt:
+
+> Photorealistic original cinematic thriller movie still for a premium streaming website movie category card. Portrait 2:3 aspect ratio. An anonymous original character glancing over their shoulder down a shadowy fog-filled alley lit by a single flickering streetlamp, suspenseful tense atmosphere, desaturated cool blue-green grading with a sliver of warm light, sharp dramatic shadows. No recognizable celebrities, logos, text, typography, brands, watermarks, or graphics. Full bleed portrait composition with a darker natural lower area.
+
+### Series posters (`static/images/series/`)
+
+Each original download is 848 × 1264; each project WebP is proportionally center-cropped and resized to 600 × 900, quality 84.
+
+#### crime-drama.webp
+
+Prompt:
+
+> Photorealistic original cinematic crime-drama series still for a premium streaming website series category card. Portrait 2:3 aspect ratio. An anonymous original detective-style character in a plain dark coat studying a corkboard of blurred unreadable notes in a dim moody office lit by venetian-blind light stripes, gritty realistic texture, desaturated blue-grey grading. No recognizable celebrities, logos, text, typography, brands, watermarks, readable documents, or graphics. Full bleed portrait composition with a darker natural lower area.
+
+#### family-drama.webp
+
+Prompt:
+
+> Photorealistic original cinematic family-drama series still for a premium streaming website series category card. Portrait 2:3 aspect ratio. An anonymous original multi-generational family of silhouetted figures gathered around a warmly lit dinner table at home, soft golden interior light, cozy heartfelt atmosphere, natural realistic texture. No recognizable celebrities, logos, text, typography, brands, watermarks, or graphics. Full bleed portrait composition with a darker natural lower area.
+
+#### sitcom.webp
+
+Prompt:
+
+> Photorealistic original cinematic sitcom-style series still for a premium streaming website series category card. Portrait 2:3 aspect ratio. Three anonymous original friends laughing together on a bright colorful living-room sofa, cheerful flat even studio-style lighting, vibrant warm color palette, upbeat lighthearted tone. No recognizable celebrities, logos, text, typography, brands, watermarks, or graphics. Full bleed portrait composition with a slightly darker natural lower area.
+
+#### mystery.webp
+
+Prompt:
+
+> Photorealistic original cinematic mystery series still for a premium streaming website series category card. Portrait 2:3 aspect ratio. An anonymous original character holding a lantern walking toward a fog-shrouded old lighthouse at dusk, intriguing enigmatic atmosphere, cool indigo and amber contrast lighting, cinematic grain. No recognizable celebrities, logos, text, typography, brands, watermarks, or graphics. Full bleed portrait composition with a darker natural lower area.
+
+### Live TV thumbnails (`static/images/live-tv/`)
+
+Each original download is 1376 × 768; each project WebP is proportionally center-cropped and resized to 640 × 360, quality 84. These represent content *categories*, not specific channels.
+
+#### sports.webp
+
+Prompt:
+
+> Photorealistic cinematic sports editorial photograph for a premium streaming website live-TV category thumbnail. Landscape 16:9 aspect ratio. A wide stadium view at dusk with anonymous blurred athletes in plain unbranded kits mid-action on a brightly floodlit track, dynamic energetic composition, blue and amber stadium lighting. No club emblems, sponsor marks, jersey numbers or lettering, team identifiers, famous players, league logos, brands, watermarks, text, or graphics. Full bleed landscape photograph.
+
+#### news.webp
+
+Prompt:
+
+> Photorealistic cinematic editorial photograph for a premium streaming website live-TV category thumbnail representing general news programming. Landscape 16:9 aspect ratio. A generic softly blurred modern city skyline at blue hour seen through a clean studio-style glass window with a subtle out-of-focus desk silhouette in the foreground, neutral professional cool-toned lighting, no legible text anywhere. No news-desk branding, tickers, logos, anchors, recognizable studios, text, typography, brands, watermarks, or graphics. Full bleed landscape photograph.
+
+#### kids.webp
+
+Prompt:
+
+> Original playful 3D storybook illustration for a premium streaming website live-TV category thumbnail representing children's programming. Landscape 16:9 aspect ratio. A cheerful wholly original cartoon raccoon character and a small bluebird playing in a bright colorful treehouse among glowing fireflies, polished family-friendly animation style, warm sunny color palette. No recognizable existing cartoon characters, franchises, text, logos, typography, brands, watermarks, or graphics. Full bleed composition with characters clearly readable.
+
+#### movies-channel.webp
+
+Prompt:
+
+> Photorealistic cinematic photograph for a premium streaming website live-TV category thumbnail representing a general movies channel. Landscape 16:9 aspect ratio. A generic ornate empty cinema theatre interior viewed from the back rows toward a glowing blank screen, rows of plain red velvet seats, warm ambient house lights, classic movie-going atmosphere. No posters, signage, text, logos, typography, brands, watermarks, people, or graphics. Full bleed landscape photograph.
 
 ## Other self-hosted assets
 

@@ -98,7 +98,7 @@ def main():
                     href = page.locator(f'[data-whatsapp="plan"][data-plan="{plan["slug"]}"]').get_attribute("href")
                     parsed = urlparse(href)
                     message = parse_qs(parsed.query)["text"][0]
-                    assert parsed.netloc == "wa.me" and parsed.path == "/8801310993838", href
+                    assert parsed.netloc == "wa.me" and parsed.path == "/8801874608217", href
                     assert plan["name"] in message and f"{period} billing" in message, message
             visit("/pricing?period=yearly", 1440, False)
             assert page.locator('[data-period="yearly"]').get_attribute("aria-pressed") == "true"

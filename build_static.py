@@ -11,7 +11,7 @@ from app import PAGES, create_app, page_context, robots_text, sitemap_xml
 from config import PROJECT_ROOT, site_origin
 
 
-SOURCE_ONLY_IMAGES = {"brand-original.jpg", "artwork-provenance.md"}
+SOURCE_ONLY_IMAGES = {"brand-original.jpg", "brand-logo-source.png", "artwork-provenance.md"}
 
 
 def _reference_is_used() -> bool:
@@ -78,6 +78,25 @@ def export_site(output: str | Path = "dist", *, origin: str | None = None) -> Pa
             )
             (target / "sitemap.xml").write_text(sitemap_xml(), encoding="utf-8")
             (target / "robots.txt").write_text(robots_text(), encoding="utf-8")
+            # Additive Arabic mirror under /ar/, alongside the unchanged English
+            # export above. Sitemap and robots stay English-only (see tests).
+            ar_root = target / "ar"
+            for slug, (route, _title, _description) in PAGES.items():
+                directory = ar_root if route == "/" else ar_root / route.strip("/")
+                directory.mkdir(parents=True, exist_ok=True)
+                template = "index.html" if slug == "home" else "page.html"
+                html = render_template(template, **page_context(slug, is_static=True, locale="ar"))
+                (directory / "index.html").write_text(html, encoding="utf-8")
+            (ar_root / "404.html").write_text(
+                render_template(
+                    "page.html",
+                    **page_context(
+                        "error", is_static=True, locale="ar", page_title="الصفحة غير موجودة | Infinity Stream TV",
+                        error_title="الصفحة غير موجودة", error_message="استكشف باقاتنا أو تواصل مع الفريق لإيجاد ما تحتاجه.",
+                    ),
+                ),
+                encoding="utf-8",
+            )
         _copy_public_assets(target)
         # Applied by hosts supporting Netlify-style headers. Configure equivalent
         # headers on other hosts; static files do not run Flask's response hooks.

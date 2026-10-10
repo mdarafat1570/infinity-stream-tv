@@ -2,119 +2,152 @@
   "brand": {
     "name": "Infinity Stream TV",
     "tagline": "Your world of entertainment",
-    "description": "Explore entertainment, find the right plan, and get personal setup guidance."
+    "tagline_ar": "عالمك من الترفيه",
+    "description": "Explore entertainment, find the right plan, and get personal setup guidance.",
+    "description_ar": "استكشف عالم الترفيه، واختر الباقة المناسبة لك، واحصل على إرشادات شخصية للتركيب."
   },
   "settings": {
-    "whatsapp_phone": "8801310993838",
-    "whatsapp_display": "+880 1310 993838",
+    "whatsapp_phone": "8801874608217",
+    "whatsapp_display": "+880 1874 608217",
     "trial_enabled": false,
     "trial_hours": null,
     "availability_note": "Channel availability, device support and plan details are confirmed before you subscribe.",
+    "availability_note_ar": "يتم تأكيد توفر القنوات ودعم الأجهزة وتفاصيل الباقات قبل الاشتراك.",
     "business_email": null,
     "legal_reviewed": false
   },
   "billing_periods": [
-    {"slug": "monthly", "name": "Monthly", "label": "Keep it flexible"},
-    {"slug": "quarterly", "name": "Quarterly", "label": "A little longer"},
-    {"slug": "yearly", "name": "Yearly", "label": "Plan ahead"}
+    {"slug": "monthly", "name": "Monthly", "name_ar": "شهري", "label": "Keep it flexible", "label_ar": "حافظ على المرونة"},
+    {"slug": "quarterly", "name": "Quarterly", "name_ar": "ربع سنوي", "label": "A little longer", "label_ar": "لفترة أطول قليلاً"},
+    {"slug": "yearly", "name": "Yearly", "name_ar": "سنوي", "label": "Plan ahead", "label_ar": "خطط للمستقبل"}
   ],
   "plans": [
     {
       "slug": "basic",
       "name": "Basic Plan",
+      "name_ar": "الباقة الأساسية",
       "description": "A simple place to start.",
+      "description_ar": "بداية بسيطة وسهلة.",
       "highlighted": false,
       "icon": "crown",
       "features": ["Ask about live TV", "Explore the content catalogue", "Check your device compatibility", "Get setup guidance", "Enquire about subscription support"],
+      "features_ar": ["اسأل عن البث المباشر", "استكشف قائمة المحتوى", "تحقق من توافق جهازك", "احصل على إرشادات التركيب", "استفسر عن دعم الاشتراك"],
       "periods": {
-        "monthly": {"price": null, "currency": "USD", "label": "per month"},
-        "quarterly": {"price": null, "currency": "USD", "label": "per quarter"},
-        "yearly": {"price": null, "currency": "USD", "label": "per year"}
+        "monthly": {"price": null, "currency": "USD", "label": "per month", "label_ar": "شهرياً"},
+        "quarterly": {"price": null, "currency": "USD", "label": "per quarter", "label_ar": "كل ثلاثة أشهر"},
+        "yearly": {"price": null, "currency": "USD", "label": "per year", "label_ar": "سنوياً"}
       }
     },
     {
       "slug": "standard",
       "name": "Standard Plan",
+      "name_ar": "الباقة القياسية",
       "description": "Find a plan for your everyday viewing.",
+      "description_ar": "باقة تناسب مشاهدتك اليومية.",
       "highlighted": false,
       "icon": "crown",
       "features": ["Discuss your viewing preferences", "Ask about movies & series", "Check simultaneous connections", "Get device setup guidance", "Confirm the latest plan details"],
+      "features_ar": ["ناقش تفضيلات المشاهدة الخاصة بك", "اسأل عن الأفلام والمسلسلات", "تحقق من عدد الاتصالات المتزامنة", "احصل على إرشادات تركيب الجهاز", "تأكد من أحدث تفاصيل الباقة"],
       "periods": {
-        "monthly": {"price": null, "currency": "USD", "label": "per month"},
-        "quarterly": {"price": null, "currency": "USD", "label": "per quarter"},
-        "yearly": {"price": null, "currency": "USD", "label": "per year"}
+        "monthly": {"price": null, "currency": "USD", "label": "per month", "label_ar": "شهرياً"},
+        "quarterly": {"price": null, "currency": "USD", "label": "per quarter", "label_ar": "كل ثلاثة أشهر"},
+        "yearly": {"price": null, "currency": "USD", "label": "per year", "label_ar": "سنوياً"}
       }
     },
     {
       "slug": "premium",
       "name": "Premium Plan",
+      "name_ar": "الباقة المميزة",
       "description": "Explore more possibilities for your home.",
+      "description_ar": "اكتشف المزيد من الإمكانيات لمنزلك.",
       "highlighted": true,
       "icon": "crown",
       "features": ["Explore available entertainment", "Ask about picture quality", "Discuss multi-device options", "Get personalized setup guidance", "Confirm your subscription options"],
+      "features_ar": ["استكشف الترفيه المتاح", "اسأل عن جودة الصورة", "ناقش خيارات تعدد الأجهزة", "احصل على إرشادات تركيب مخصصة", "تأكد من خيارات اشتراكك"],
       "periods": {
-        "monthly": {"price": null, "currency": "USD", "label": "per month"},
-        "quarterly": {"price": null, "currency": "USD", "label": "per quarter"},
-        "yearly": {"price": null, "currency": "USD", "label": "per year"}
+        "monthly": {"price": null, "currency": "USD", "label": "per month", "label_ar": "شهرياً"},
+        "quarterly": {"price": null, "currency": "USD", "label": "per quarter", "label_ar": "كل ثلاثة أشهر"},
+        "yearly": {"price": null, "currency": "USD", "label": "per year", "label_ar": "سنوياً"}
       }
     },
     {
       "slug": "reseller",
       "name": "Reseller Plan",
+      "name_ar": "باقة الموزعين",
       "description": "Start a conversation about partnering.",
+      "description_ar": "ابدأ محادثة حول الشراكة.",
       "highlighted": false,
       "icon": "users",
       "features": ["Discuss partnership eligibility", "Ask about reseller packages", "Confirm tools and access", "Explore onboarding options", "Get clear commercial terms"],
+      "features_ar": ["ناقش أهلية الشراكة", "اسأل عن باقات الموزعين", "تأكد من الأدوات وصلاحيات الوصول", "استكشف خيارات الانضمام", "احصل على شروط تجارية واضحة"],
       "periods": {
-        "monthly": {"price": null, "currency": "USD", "label": "per month"},
-        "quarterly": {"price": null, "currency": "USD", "label": "per quarter"},
-        "yearly": {"price": null, "currency": "USD", "label": "per year"}
+        "monthly": {"price": null, "currency": "USD", "label": "per month", "label_ar": "شهرياً"},
+        "quarterly": {"price": null, "currency": "USD", "label": "per quarter", "label_ar": "كل ثلاثة أشهر"},
+        "yearly": {"price": null, "currency": "USD", "label": "per year", "label_ar": "سنوياً"}
       }
     }
   ],
   "categories": [
-    {"slug": "live-tv", "name": "Live TV", "description": "Stay in the moment", "image": "/static/images/category-live-tv.webp", "icon": "tv"},
-    {"slug": "movies", "name": "Movies", "description": "Make it a movie night", "image": "/static/images/category-movies.webp", "icon": "film"},
-    {"slug": "series", "name": "Series & Dramas", "description": "Find your next story", "image": "/static/images/category-series.webp", "icon": "series"},
-    {"slug": "sports", "name": "Sports", "description": "Feel every moment", "image": "/static/images/category-sports.webp", "icon": "ball"},
-    {"slug": "arabic", "name": "Arabic", "description": "Entertainment in Arabic", "image": "/static/images/category-arabic.webp", "icon": "globe"},
-    {"slug": "kids", "name": "Kids", "description": "Little viewers, big worlds", "image": "/static/images/category-kids.webp", "icon": "star"},
-    {"slug": "documentary", "name": "Documentaries", "description": "Discover something new", "image": "/static/images/category-documentaries.webp", "icon": "compass"},
-    {"slug": "international", "name": "International", "description": "Stories around the world", "image": "/static/images/category-international.webp", "icon": "globe"}
+    {"slug": "live-tv", "name": "Live TV", "name_ar": "البث المباشر", "description": "Stay in the moment", "description_ar": "عِش اللحظة", "image": "/static/images/category-live-tv.webp", "icon": "tv"},
+    {"slug": "movies", "name": "Movies", "name_ar": "أفلام", "description": "Make it a movie night", "description_ar": "اجعلها ليلة أفلام", "image": "/static/images/category-movies.webp", "icon": "film"},
+    {"slug": "series", "name": "Series & Dramas", "name_ar": "مسلسلات ودراما", "description": "Find your next story", "description_ar": "اعثر على قصتك القادمة", "image": "/static/images/category-series.webp", "icon": "series"},
+    {"slug": "sports", "name": "Sports", "name_ar": "رياضة", "description": "Feel every moment", "description_ar": "عِش كل لحظة", "image": "/static/images/category-sports.webp", "icon": "ball"},
+    {"slug": "arabic", "name": "Arabic", "name_ar": "المحتوى العربي", "description": "Entertainment in Arabic", "description_ar": "ترفيه باللغة العربية", "image": "/static/images/category-arabic.webp", "icon": "globe"},
+    {"slug": "kids", "name": "Kids", "name_ar": "أطفال", "description": "Little viewers, big worlds", "description_ar": "عوالم كبيرة لصغارنا", "image": "/static/images/category-kids.webp", "icon": "star"},
+    {"slug": "documentary", "name": "Documentaries", "name_ar": "وثائقيات", "description": "Discover something new", "description_ar": "اكتشف شيئاً جديداً", "image": "/static/images/category-documentaries.webp", "icon": "compass"},
+    {"slug": "international", "name": "International", "name_ar": "عالمي", "description": "Stories around the world", "description_ar": "قصص من حول العالم", "image": "/static/images/category-international.webp", "icon": "globe"}
   ],
   "countries": [
-    {"code": "SA", "name": "Saudi Arabia", "flag": "🇸🇦"},
-    {"code": "AE", "name": "UAE", "flag": "🇦🇪"},
-    {"code": "QA", "name": "Qatar", "flag": "🇶🇦"},
-    {"code": "KW", "name": "Kuwait", "flag": "🇰🇼"},
-    {"code": "US", "name": "USA", "flag": "🇺🇸"},
-    {"code": "GB", "name": "UK", "flag": "🇬🇧"},
-    {"code": "TR", "name": "Turkey", "flag": "🇹🇷"},
-    {"code": "IN", "name": "India", "flag": "🇮🇳"},
-    {"code": "PK", "name": "Pakistan", "flag": "🇵🇰"},
-    {"code": "BD", "name": "Bangladesh", "flag": "🇧🇩"}
+    {"code": "SA", "name": "Saudi Arabia", "name_ar": "المملكة العربية السعودية", "flag": "🇸🇦"},
+    {"code": "AE", "name": "UAE", "name_ar": "الإمارات العربية المتحدة", "flag": "🇦🇪"},
+    {"code": "QA", "name": "Qatar", "name_ar": "قطر", "flag": "🇶🇦"},
+    {"code": "KW", "name": "Kuwait", "name_ar": "الكويت", "flag": "🇰🇼"},
+    {"code": "US", "name": "USA", "name_ar": "الولايات المتحدة", "flag": "🇺🇸"},
+    {"code": "GB", "name": "UK", "name_ar": "المملكة المتحدة", "flag": "🇬🇧"},
+    {"code": "TR", "name": "Turkey", "name_ar": "تركيا", "flag": "🇹🇷"},
+    {"code": "IN", "name": "India", "name_ar": "الهند", "flag": "🇮🇳"},
+    {"code": "PK", "name": "Pakistan", "name_ar": "باكستان", "flag": "🇵🇰"},
+    {"code": "BD", "name": "Bangladesh", "name_ar": "بنغلاديش", "flag": "🇧🇩"}
   ],
   "devices": [
-    {"name": "Android", "label": "Phones & tablets", "description": "Tell us your Android model for a compatibility check.", "icon": "android"},
-    {"name": "iOS", "label": "iPhone & iPad", "description": "Ask which player and setup works for your device.", "icon": "apple"},
-    {"name": "Smart TV", "label": "Your big screen", "description": "Share the TV brand, model and year before subscribing.", "icon": "tv"},
-    {"name": "Windows / Mac", "label": "Desktop & laptop", "description": "Confirm the compatible player and operating system.", "icon": "laptop"},
-    {"name": "Fire TV", "label": "Streaming devices", "description": "Check your streaming device and player requirements.", "icon": "fire"},
-    {"name": "IPTV players", "label": "Ask about setup", "description": "Confirm the app and connection format with our team.", "icon": "play"}
+    {"name": "Android", "name_ar": "أندرويد", "label": "Phones & tablets", "label_ar": "الهواتف والأجهزة اللوحية", "description": "Tell us your Android model for a compatibility check.", "description_ar": "أخبرنا بموديل جهاز الأندرويد الخاص بك للتحقق من التوافق.", "icon": "android"},
+    {"name": "iOS", "name_ar": "آي أو إس", "label": "iPhone & iPad", "label_ar": "آيفون وآيباد", "description": "Ask which player and setup works for your device.", "description_ar": "اسأل عن المشغل والإعداد المناسب لجهازك.", "icon": "apple"},
+    {"name": "Smart TV", "name_ar": "التلفاز الذكي", "label": "Your big screen", "label_ar": "شاشتك الكبيرة", "description": "Share the TV brand, model and year before subscribing.", "description_ar": "شاركنا نوع التلفاز والموديل وسنة الصنع قبل الاشتراك.", "icon": "tv"},
+    {"name": "Windows / Mac", "name_ar": "ويندوز / ماك", "label": "Desktop & laptop", "label_ar": "أجهزة الكمبيوتر المكتبية والمحمولة", "description": "Confirm the compatible player and operating system.", "description_ar": "تأكد من المشغل المتوافق ونظام التشغيل.", "icon": "laptop"},
+    {"name": "Fire TV", "name_ar": "فاير تي في", "label": "Streaming devices", "label_ar": "أجهزة البث", "description": "Check your streaming device and player requirements.", "description_ar": "تحقق من جهاز البث ومتطلبات المشغل.", "icon": "fire"},
+    {"name": "IPTV players", "name_ar": "مشغلات IPTV", "label": "Ask about setup", "label_ar": "اسأل عن طريقة الإعداد", "description": "Confirm the app and connection format with our team.", "description_ar": "تأكد من التطبيق وصيغة الاتصال مع فريقنا.", "icon": "play"}
   ],
   "why_us": [
-    {"title": "Your kind of viewing", "description": "Explore the available catalogue", "icon": "diamond"},
-    {"title": "Clear plan details", "description": "Confirm everything before you join", "icon": "shield"},
-    {"title": "Personal guidance", "description": "Talk to us on WhatsApp", "icon": "headphones"},
-    {"title": "Simple next steps", "description": "Ask, choose and get set up", "icon": "bolt"}
+    {"title": "Your kind of viewing", "title_ar": "المشاهدة التي تناسبك", "description": "Explore the available catalogue", "description_ar": "استكشف القائمة المتاحة", "icon": "diamond"},
+    {"title": "Clear plan details", "title_ar": "تفاصيل باقات واضحة", "description": "Confirm everything before you join", "description_ar": "تأكد من كل شيء قبل الانضمام", "icon": "shield"},
+    {"title": "Personal guidance", "title_ar": "إرشاد شخصي", "description": "Talk to us on WhatsApp", "description_ar": "تحدث معنا عبر واتساب", "icon": "headphones"},
+    {"title": "Simple next steps", "title_ar": "خطوات بسيطة", "description": "Ask, choose and get set up", "description_ar": "اسأل، اختر، وابدأ", "icon": "bolt"}
   ],
   "faq": [
-    {"question": "Which devices can I use?", "answer": "Share your device brand, model and preferred player with us. We will confirm compatibility and the setup requirements before you subscribe."},
-    {"question": "Can I request a free trial?", "answer": "Ask our team whether a trial is currently available. Eligibility, duration and any limits will be confirmed before a trial is arranged."},
-    {"question": "How do I activate a subscription?", "answer": "Choose a plan to enquire about on WhatsApp. Our team will confirm current pricing, available content, device compatibility and activation steps before you decide."},
-    {"question": "How many devices can I use at once?", "answer": "The connection allowance depends on the package offered. Tell us how many devices you want to use and confirm the simultaneous connection limit before subscribing."},
-    {"question": "Which payment methods are available?", "answer": "Our team will share the payment methods available for your location when you enquire. This website does not collect payment or card details."},
-    {"question": "How can I contact support?", "answer": "Use our WhatsApp contact or the enquiry form. Share your device details and a short description of the issue, and ask about current support availability."},
-    {"question": "What are the cancellation and refund terms?", "answer": "Ask for the current cancellation and refund terms before paying. Eligibility and any limits must be confirmed in writing as part of your subscription offer."}
+    {"question": "Which devices can I use?", "question_ar": "ما هي الأجهزة التي يمكنني استخدامها؟", "answer": "Share your device brand, model and preferred player with us. We will confirm compatibility and the setup requirements before you subscribe.", "answer_ar": "شاركنا نوع جهازك وموديله والمشغل المفضل لديك. سنتأكد من التوافق ومتطلبات التركيب قبل اشتراكك."},
+    {"question": "Can I request a free trial?", "question_ar": "هل يمكنني طلب تجربة مجانية؟", "answer": "Ask our team whether a trial is currently available. Eligibility, duration and any limits will be confirmed before a trial is arranged.", "answer_ar": "اسأل فريقنا عما إذا كانت التجربة المجانية متاحة حالياً. سيتم تأكيد الأهلية والمدة وأي قيود قبل ترتيب التجربة."},
+    {"question": "How do I activate a subscription?", "question_ar": "كيف أقوم بتفعيل الاشتراك؟", "answer": "Choose a plan to enquire about on WhatsApp. Our team will confirm current pricing, available content, device compatibility and activation steps before you decide.", "answer_ar": "اختر باقة للاستفسار عنها عبر واتساب. سيؤكد فريقنا السعر الحالي والمحتوى المتاح وتوافق الجهاز وخطوات التفعيل قبل أن تقرر."},
+    {"question": "How many devices can I use at once?", "question_ar": "كم عدد الأجهزة التي يمكنني استخدامها في وقت واحد؟", "answer": "The connection allowance depends on the package offered. Tell us how many devices you want to use and confirm the simultaneous connection limit before subscribing.", "answer_ar": "يعتمد عدد الاتصالات المسموح بها على الباقة المقدمة. أخبرنا بعدد الأجهزة التي ترغب في استخدامها وتأكد من حد الاتصالات المتزامنة قبل الاشتراك."},
+    {"question": "Which payment methods are available?", "question_ar": "ما هي طرق الدفع المتاحة؟", "answer": "Our team will share the payment methods available for your location when you enquire. This website does not collect payment or card details.", "answer_ar": "سيشاركك فريقنا طرق الدفع المتاحة في منطقتك عند الاستفسار. لا يجمع هذا الموقع بيانات الدفع أو بطاقتك الائتمانية."},
+    {"question": "How can I contact support?", "question_ar": "كيف يمكنني التواصل مع الدعم؟", "answer": "Use our WhatsApp contact or the enquiry form. Share your device details and a short description of the issue, and ask about current support availability.", "answer_ar": "استخدم تواصلنا عبر واتساب أو نموذج الاستفسار. شاركنا تفاصيل جهازك ووصفاً موجزاً للمشكلة، واسأل عن توفر الدعم حالياً."},
+    {"question": "What are the cancellation and refund terms?", "question_ar": "ما هي شروط الإلغاء واسترداد الأموال؟", "answer": "Ask for the current cancellation and refund terms before paying. Eligibility and any limits must be confirmed in writing as part of your subscription offer.", "answer_ar": "اسأل عن شروط الإلغاء والاسترداد الحالية قبل الدفع. يجب تأكيد الأهلية وأي قيود كتابياً كجزء من عرض اشتراكك."}
+  ],
+  "movies_row": [
+    {"slug": "action", "label": "Action", "label_ar": "أكشن", "image": "/static/images/movies/action.webp"},
+    {"slug": "drama", "label": "Drama", "label_ar": "دراما", "image": "/static/images/movies/drama.webp"},
+    {"slug": "comedy", "label": "Comedy", "label_ar": "كوميديا", "image": "/static/images/movies/comedy.webp"},
+    {"slug": "thriller", "label": "Thriller", "label_ar": "إثارة وتشويق", "image": "/static/images/movies/thriller.webp"}
+  ],
+  "series_row": [
+    {"slug": "crime-drama", "label": "Crime Drama", "label_ar": "دراما جريمة", "image": "/static/images/series/crime-drama.webp"},
+    {"slug": "family-drama", "label": "Family Drama", "label_ar": "دراما عائلية", "image": "/static/images/series/family-drama.webp"},
+    {"slug": "comedy", "label": "Comedy", "label_ar": "كوميديا", "image": "/static/images/series/sitcom.webp"},
+    {"slug": "mystery", "label": "Mystery", "label_ar": "غموض", "image": "/static/images/series/mystery.webp"}
+  ],
+  "live_tv_row": [
+    {"slug": "sports", "label": "Sports", "label_ar": "رياضة", "image": "/static/images/live-tv/sports.webp"},
+    {"slug": "news", "label": "News", "label_ar": "أخبار", "image": "/static/images/live-tv/news.webp"},
+    {"slug": "kids", "label": "Kids", "label_ar": "أطفال", "image": "/static/images/live-tv/kids.webp"},
+    {"slug": "movies-channel", "label": "Movies Channel", "label_ar": "قناة أفلام", "image": "/static/images/live-tv/movies-channel.webp"}
   ]
 }

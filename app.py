@@ -13,11 +13,12 @@ import time
 from urllib.parse import urlencode, urlsplit
 from xml.sax.saxutils import escape
 
-from flask import Flask, Response, current_app, g, jsonify, redirect, render_template, request
+from flask import Flask, Response, current_app, g, has_request_context, jsonify, redirect, render_template, request
 from flask_wtf.csrf import CSRFError, CSRFProtect, generate_csrf
 from werkzeug.exceptions import HTTPException
 from werkzeug.middleware.proxy_fix import ProxyFix
 
+import i18n
 from config import PROJECT_ROOT, environment_config, site_origin
 
 PAGES = {
@@ -111,14 +112,50 @@ def whatsapp_url(plan_name: str | None = None, message: str | None = None, perio
     return f"https://wa.me/{site['settings']['whatsapp_phone']}?{urlencode({'text': message})}"
 
 
-def page_context(slug: str, *, is_static: bool = False, **overrides) -> dict:
+def resolve_request_locale() -> str:
+    """Resolve the active locale from the current request, defaulting to English outside one."""
+    if not has_request_context():
+        return i18n.DEFAULT_LOCALE
+    return i18n.resolve_locale(query_lang=request.args.get("lang"), cookie_lang=request.cookies.get("lang"))
+
+
+def current_translator():
+    """A `t(key, **kwargs)` bound to the active request's locale, for use outside page_context()."""
+    return i18n.make_translator(resolve_request_locale())
+
+
+def alternate_url(path: str, locale: str) -> str | None:
+    """The equivalent URL for `path` in `locale`, for hreflang alternate links."""
+    origin = current_app.config.get("SITE_URL")
+    if not origin:
+        return None
+    suffix = path.strip("/")
+    if locale == "ar":
+        return f"{origin}/ar/{suffix}" if suffix else f"{origin}/ar/"
+    return origin + path
+
+
+def _lang_switch_url(current_path: str, target_locale: str, *, is_static: bool) -> str:
+    """The current page's URL with `lang` swapped to `target_locale`, preserving other query params."""
+    params = []
+    if has_request_context() and not is_static:
+        params = [(key, value) for key, value in request.args.items(multi=True) if key != "lang"]
+    params.append(("lang", target_locale))
+    return f"{current_path}?{urlencode(params)}"
+
+
+def page_context(slug: str, *, is_static: bool = False, locale: str | None = None, **overrides) -> dict:
     path, title, description = PAGES.get(slug, ("/", "Infinity Stream TV", "Entertainment and subscription enquiries."))
+    resolved_locale = locale if locale in i18n.SUPPORTED_LOCALES else resolve_request_locale()
+    current_path = request.path if (has_request_context() and not is_static) else path
     context = {
         "site": current_app.extensions["site"],
         "page_slug": slug,
         "page_title": title,
         "page_description": description,
         "canonical_url": current_app.config["SITE_URL"] + path,
+        "alternate_en_url": alternate_url(path, "en"),
+        "alternate_ar_url": alternate_url(path, "ar"),
         "current_year": datetime.now(timezone.utc).year,
         "csrf_token": "" if is_static else generate_csrf(),
         "is_static": is_static,
@@ -126,6 +163,12 @@ def page_context(slug: str, *, is_static: bool = False, **overrides) -> dict:
         "form_errors": {},
         "form_data": {},
         "enquiry_saved": False,
+        "locale": resolved_locale,
+        "text_dir": i18n.text_direction(resolved_locale),
+        "t": i18n.make_translator(resolved_locale),
+        "loc": i18n.localize,
+        "lang_url_en": _lang_switch_url(current_path, "en", is_static=is_static),
+        "lang_url_ar": _lang_switch_url(current_path, "ar", is_static=is_static),
     }
     context.update(overrides)
     return context
@@ -152,34 +195,35 @@ def enquiry_error(errors: dict, status: int = 400, data: dict | None = None):
     return render_page(_form_source(), status=status, form_errors=errors, form_data=data or {})
 
 
-def validate_enquiry(form) -> tuple[dict, dict]:
+def validate_enquiry(form, t=None) -> tuple[dict, dict]:
+    t = t or current_translator()
     fields = ("name", "country", "contact_method", "contact", "message", "plan")
     data = {key: str(form.get(key, "")).strip() for key in fields}
     data["plan"] = data["plan"] or "general"
     errors = {}
-    for field, minimum, maximum, label in (
-        ("name", 2, 80, "Your name"),
-        ("country", 2, 80, "Your country"),
-        ("message", 10, 2000, "Your message"),
+    for field, minimum, maximum, label_key in (
+        ("name", 2, 80, "forms.labels.name"),
+        ("country", 2, 80, "forms.labels.country"),
+        ("message", 10, 2000, "forms.labels.message"),
     ):
         if not minimum <= len(data[field]) <= maximum:
-            errors[field] = f"{label} must be between {minimum} and {maximum} characters."
+            errors[field] = t("forms.errors.name_length", label=t(label_key), minimum=minimum, maximum=maximum)
     for field, value in data.items():
         if re.search(r"[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]", value):
-            errors[field] = "Please remove unsupported control characters."
+            errors[field] = t("forms.errors.control_chars")
     if data["contact_method"] not in {"whatsapp", "email"}:
-        errors["contact_method"] = "Choose WhatsApp or email as your preferred contact method."
+        errors["contact_method"] = t("forms.errors.contact_method")
     elif data["contact_method"] == "whatsapp":
         number = re.sub(r"[\s().\-]", "", data["contact"])
         if not re.fullmatch(r"\+?[1-9][0-9]{6,14}", number):
-            errors["contact"] = "Enter your WhatsApp number with its country code, for example +8801310993838."
+            errors["contact"] = t("forms.errors.contact_phone")
         else:
             data["contact"] = number
     elif len(data["contact"]) > 254 or not re.fullmatch(r"[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+", data["contact"]):
-        errors["contact"] = "Enter a valid email address."
+        errors["contact"] = t("forms.errors.contact_email")
     allowed_plans = {plan["slug"] for plan in current_app.extensions["site"]["plans"]} | {"general", "trial"}
     if data["plan"] not in allowed_plans:
-        errors["plan"] = "Choose one of the available enquiry options."
+        errors["plan"] = t("forms.errors.plan")
     return data, errors
 
 
@@ -260,7 +304,7 @@ def create_app(test_config: dict | None = None) -> Flask:
         if request.endpoint == "enquiry" and request.method == "POST":
             allowed, retry_after = _consume_rate_limit()
             if not allowed:
-                response = app.make_response(enquiry_error({"_form": "You have made several enquiries. Please wait a few minutes, or contact us directly on WhatsApp."}, 429))
+                response = app.make_response(enquiry_error({"_form": current_translator()("forms.errors.rate_limited")}, 429))
                 response.headers["Retry-After"] = str(retry_after)
                 return response
 
@@ -277,9 +321,10 @@ def create_app(test_config: dict | None = None) -> Flask:
 
     @app.post("/enquiry")
     def enquiry():
+        t = current_translator()
         if request.form.get("website", "").strip():
-            return enquiry_error({"_form": "We could not accept this enquiry. Please contact us directly on WhatsApp."})
-        data, errors = validate_enquiry(request.form)
+            return enquiry_error({"_form": t("forms.errors.spam")})
+        data, errors = validate_enquiry(request.form, t)
         if errors:
             return enquiry_error(errors, data=data)
         db = get_db()
@@ -300,7 +345,7 @@ def create_app(test_config: dict | None = None) -> Flask:
         )
         destination = whatsapp_url(message=message)
         if _wants_json():
-            return jsonify(ok=True, saved=True, whatsapp_url=destination, message="Your enquiry was saved. Review and send it in WhatsApp.")
+            return jsonify(ok=True, saved=True, whatsapp_url=destination, message=t("forms.success_message"))
         return redirect(destination, code=303)
 
     @app.get("/sitemap.xml")
@@ -314,16 +359,15 @@ def create_app(test_config: dict | None = None) -> Flask:
     @app.errorhandler(CSRFError)
     def csrf_failure(error):
         data = {key: request.form.get(key, "") for key in ("name", "country", "contact_method", "contact", "message", "plan")}
-        return enquiry_error({"_form": "This form has expired or could not be verified. Please refresh the page and try again."}, 400, data)
+        return enquiry_error({"_form": current_translator()("forms.errors.csrf")}, 400, data)
 
     @app.errorhandler(HTTPException)
     def public_error(error):
-        messages = {
-            404: ("Page not found", "The page you are looking for is not available. Explore our plans or contact the team."),
-            413: ("Enquiry too large", "Please keep your message under 2,000 characters and submit the form again."),
-            500: ("Something went wrong", "Please try again in a moment or contact us directly on WhatsApp."),
-        }
-        title, message = messages.get(error.code, (error.name, "Please try again or contact our team on WhatsApp."))
+        t = current_translator()
+        titles = {404: t("error.titles.404"), 413: t("error.titles.413"), 500: t("error.titles.500")}
+        messages = {404: t("error.messages.404"), 413: t("error.messages.413"), 500: t("error.messages.500")}
+        title = titles.get(error.code, error.name)
+        message = messages.get(error.code, t("error.messages.generic"))
         return render_page("error", status=error.code, page_title=f"{title} | Infinity Stream TV", error_title=title, error_message=message)
 
     @app.after_request
@@ -341,6 +385,12 @@ def create_app(test_config: dict | None = None) -> Flask:
             response.headers["Strict-Transport-Security"] = "max-age=31536000"
         if request.endpoint not in {"static", "sitemap", "robots"}:
             response.headers["Cache-Control"] = "no-store"
+        query_lang = request.args.get("lang")
+        if query_lang in i18n.SUPPORTED_LOCALES:
+            response.set_cookie(
+                "lang", query_lang, max_age=31536000, samesite="Lax",
+                secure=app.config["SESSION_COOKIE_SECURE"], httponly=True,
+            )
         return response
 
     @app.cli.command("prune-enquiries")

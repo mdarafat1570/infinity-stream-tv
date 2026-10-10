@@ -1,32 +1,32 @@
 {% extends 'base.html' %}
-{% from '_components.html' import icon, pricing, categories, faqs, enquiry_form with context %}
+{% from '_components.html' import icon, pricing, categories, faqs, enquiry_form, content_row with context %}
 
 {% block content %}
 {% if page_slug == 'pricing' %}
 <section class="page-intro">
   <div class="container">
-    <span class="eyebrow">YOUR ENTERTAINMENT, YOUR WAY</span>
-    <h1>A plan for <span class="gradient-text">every screen.</span></h1>
-    <p>Explore the options below. Our team will help you confirm pricing, available content, and the right plan for your setup.</p>
+    <span class="eyebrow">{{ t('pages.pricing.eyebrow') }}</span>
+    <h1>{{ t('pages.pricing.heading_line1') }} <span class="gradient-text">{{ t('pages.pricing.heading_gradient') }}</span></h1>
+    <p>{{ t('pages.pricing.intro') }}</p>
   </div>
 </section>
-<section class="section section-compact" aria-label="Subscription plans">
+<section class="section section-compact" aria-label="{{ t('nav.pricing') }}">
   <div class="container">
     {{ pricing() }}
-    <p class="notice">Prices, connection limits, and content availability are confirmed before purchase. Ask about any trial offer when you enquire.</p>
+    <p class="notice">{{ t('pages.pricing.notice') }}</p>
   </div>
 </section>
 <section class="section section-soft">
   <div class="container">
     <div class="section-heading">
-      <span class="eyebrow">A SIMPLE START</span>
-      <h2>From a question to <span class="gradient-text">your first watch.</span></h2>
-      <p>A little help finding the right fit, at every step.</p>
+      <span class="eyebrow">{{ t('pages.pricing.steps_eyebrow') }}</span>
+      <h2>{{ t('pages.pricing.steps_heading_line1') }} <span class="gradient-text">{{ t('pages.pricing.steps_heading_gradient') }}</span></h2>
+      <p>{{ t('pages.pricing.steps_subtitle') }}</p>
     </div>
     <div class="steps-grid">
-      <article class="step-card"><span class="setup-number">01</span><h3>Choose your plan</h3><p>Start with a plan that suits the number of screens you want to use.</p></article>
-      <article class="step-card"><span class="setup-number">02</span><h3>Confirm the details</h3><p>Ask us about the price, your device, content availability, and the terms before you pay.</p></article>
-      <article class="step-card"><span class="setup-number">03</span><h3>Get setup guidance</h3><p>Our team can explain the appropriate app and activation steps for your device.</p></article>
+      <article class="step-card"><span class="setup-number">01</span><h3>{{ t('pages.pricing.step1_title') }}</h3><p>{{ t('pages.pricing.step1_text') }}</p></article>
+      <article class="step-card"><span class="setup-number">02</span><h3>{{ t('pages.pricing.step2_title') }}</h3><p>{{ t('pages.pricing.step2_text') }}</p></article>
+      <article class="step-card"><span class="setup-number">03</span><h3>{{ t('pages.pricing.step3_title') }}</h3><p>{{ t('pages.pricing.step3_text') }}</p></article>
     </div>
   </div>
 </section>
@@ -34,117 +34,122 @@
 {% elif page_slug == 'channels' %}
 <section class="page-intro">
   <div class="container">
-    <span class="eyebrow">EXPLORE THE POSSIBILITIES</span>
-    <h1>Your next favourite. <span class="gradient-text">Find it here.</span></h1>
-    <p>Live television, film nights, match days, and something for the family. Browse our content categories and ask about the current lineup.</p>
+    <span class="eyebrow">{{ t('pages.channels.eyebrow') }}</span>
+    <h1>{{ t('pages.channels.heading_line1') }} <span class="gradient-text">{{ t('pages.channels.heading_gradient') }}</span></h1>
+    <p>{{ t('pages.channels.intro') }}</p>
   </div>
 </section>
-<section class="section section-compact" aria-label="Browse content categories">
+<section class="section section-compact" aria-label="{{ t('pages.channels.browse_aria') }}">
   <div class="container">
-    <div class="filter-bar" role="group" aria-label="Filter content categories">
-      <button class="filter-button active" type="button" data-category-filter="all" aria-pressed="true">All content</button>
+    <div class="filter-bar" role="group" aria-label="{{ t('pages.channels.filter_aria') }}">
+      <button class="filter-button active" type="button" data-category-filter="all" aria-pressed="true">{{ t('pages.channels.filter_all') }}</button>
       {% for category in site.categories %}
-      <button class="filter-button" type="button" data-category-filter="{{ category.slug }}" aria-pressed="false">{{ category.name }}</button>
+      <button class="filter-button" type="button" data-category-filter="{{ category.slug }}" aria-pressed="false">{{ loc(category, 'name', locale) }}</button>
       {% endfor %}
     </div>
     {{ categories() }}
-    <p class="notice">Browse categories here, then contact us to confirm the channels and titles available with your plan and in your country.</p>
+    <p class="notice">{{ t('pages.channels.notice') }}</p>
   </div>
 </section>
+<section class="section content-rows-section"><div class="container content-rows-container">
+{{ content_row(site.movies_row, t('home.movies_row_title'), t('home.movies_row_subtitle'), t('nav.movies'), 'movies', 300, 450) }}
+{{ content_row(site.series_row, t('home.series_row_title'), t('home.series_row_subtitle'), t('nav.series'), 'series', 300, 450) }}
+{{ content_row(site.live_tv_row, t('home.live_tv_row_title'), t('home.live_tv_row_subtitle'), t('nav.live_tv'), 'live TV channels', 320, 180, variant='landscape') }}
+</div></section>
 <section class="section section-soft" id="countries">
   <div class="container">
     <div class="section-heading">
-      <span class="eyebrow">ENTERTAINMENT ACROSS BORDERS</span>
-      <h2>Tell us where <span class="gradient-text">you’re watching.</span></h2>
-      <p>Looking for content from home or somewhere new? Our team can help you check the options for your location.</p>
+      <span class="eyebrow">{{ t('pages.channels.countries_eyebrow') }}</span>
+      <h2>{{ t('pages.channels.countries_heading_line1') }} <span class="gradient-text">{{ t('pages.channels.countries_heading_gradient') }}</span></h2>
+      <p>{{ t('pages.channels.countries_subtitle') }}</p>
     </div>
     <div class="country-grid">
       {% for country in site.countries %}
       <a class="country-card" href="https://wa.me/{{ site.settings.whatsapp_phone }}" data-whatsapp="country" data-country="{{ country.name }}" target="_blank" rel="noopener noreferrer">
         <span class="country-flag" aria-hidden="true"><img src="/static/images/flags/{{ country.code|lower }}.svg" alt="" width="38" height="38" loading="lazy"></span>
-        <span>{{ country.name }}</span>
-        {{ icon('arrow-right') }}
+        <span>{{ loc(country, 'name', locale) }}</span>
+        {{ icon('arrow-right', 'icon-flip-rtl') }}
       </a>
       {% endfor %}
     </div>
-    <div class="page-actions"><a class="btn btn-secondary" href="/contact">Ask about your country {{ icon('arrow-right') }}</a></div>
+    <div class="page-actions"><a class="btn btn-secondary" href="/contact">{{ t('pages.channels.ask_country') }} {{ icon('arrow-right', 'icon-flip-rtl') }}</a></div>
   </div>
 </section>
 
 {% elif page_slug == 'devices' %}
 <section class="page-intro">
   <div class="container">
-    <span class="eyebrow">BIG SCREENS. SMALL SCREENS. YOUR SCREENS.</span>
-    <h1>Find the right setup <span class="gradient-text">for your screen.</span></h1>
-    <p>Tell us your device model and where you’ll be watching. We’ll help you check compatibility and the appropriate player before you subscribe.</p>
-    <div class="page-actions"><a class="btn btn-primary" href="#setup-guide">Explore setup steps {{ icon('arrow-right') }}</a><a class="btn btn-secondary" href="/contact">Check my device</a></div>
+    <span class="eyebrow">{{ t('pages.devices.eyebrow') }}</span>
+    <h1>{{ t('pages.devices.heading_line1') }} <span class="gradient-text">{{ t('pages.devices.heading_gradient') }}</span></h1>
+    <p>{{ t('pages.devices.intro') }}</p>
+    <div class="page-actions"><a class="btn btn-primary" href="#setup-guide">{{ t('pages.devices.explore_steps') }} {{ icon('arrow-right', 'icon-flip-rtl') }}</a><a class="btn btn-secondary" href="/contact">{{ t('pages.devices.check_device') }}</a></div>
   </div>
 </section>
-<section class="section section-compact" aria-label="Device setup options">
+<section class="section section-compact" aria-label="{{ t('pages.devices.grid_aria') }}">
   <div class="container">
     <div class="device-grid">
       {% for device in site.devices %}
       <article class="device-card">
         <div class="device-icon">{{ icon(device.icon) }}</div>
-        <span class="mini-label">{{ device.label }}</span>
-        <h2>{{ device.name }}</h2>
-        <p>{{ device.description }}</p>
-        <a class="text-link" href="https://wa.me/{{ site.settings.whatsapp_phone }}" data-whatsapp="device" data-device="{{ device.name }}" target="_blank" rel="noopener noreferrer">Ask about setup {{ icon('arrow-right') }}</a>
+        <span class="mini-label">{{ loc(device, 'label', locale) }}</span>
+        <h2>{{ loc(device, 'name', locale) }}</h2>
+        <p>{{ loc(device, 'description', locale) }}</p>
+        <a class="text-link" href="https://wa.me/{{ site.settings.whatsapp_phone }}" data-whatsapp="device" data-device="{{ device.name }}" target="_blank" rel="noopener noreferrer">{{ t('pages.devices.ask_setup') }} {{ icon('arrow-right', 'icon-flip-rtl') }}</a>
       </article>
       {% endfor %}
     </div>
-    <p class="notice">Compatibility varies by device model, operating system, player, and location. Confirm these details with support before purchasing a plan or installing a paid app.</p>
+    <p class="notice">{{ t('pages.devices.notice') }}</p>
   </div>
 </section>
 <section class="section section-soft" id="setup-guide">
   <div class="container">
     <div class="section-heading">
-      <span class="eyebrow">GET READY TO WATCH</span>
-      <h2>A few simple <span class="gradient-text">setup steps.</span></h2>
-      <p>Your exact instructions will depend on the device and player confirmed by our team.</p>
+      <span class="eyebrow">{{ t('pages.devices.setup_eyebrow') }}</span>
+      <h2>{{ t('pages.devices.setup_heading_line1') }} <span class="gradient-text">{{ t('pages.devices.setup_heading_gradient') }}</span></h2>
+      <p>{{ t('pages.devices.setup_subtitle') }}</p>
     </div>
     <div class="steps-grid">
-      <article class="step-card"><span class="setup-number">01</span><h3>Share your device</h3><p>Send the device name, model, operating system, and country so we can check the right setup.</p></article>
-      <article class="step-card"><span class="setup-number">02</span><h3>Choose a suitable player</h3><p>Follow the installation instructions supplied for your confirmed device. Ask about any separate app costs.</p></article>
-      <article class="step-card"><span class="setup-number">03</span><h3>Follow your activation guide</h3><p>Enter the details provided privately by support. Keep your account credentials secure.</p></article>
+      <article class="step-card"><span class="setup-number">01</span><h3>{{ t('pages.devices.step1_title') }}</h3><p>{{ t('pages.devices.step1_text') }}</p></article>
+      <article class="step-card"><span class="setup-number">02</span><h3>{{ t('pages.devices.step2_title') }}</h3><p>{{ t('pages.devices.step2_text') }}</p></article>
+      <article class="step-card"><span class="setup-number">03</span><h3>{{ t('pages.devices.step3_title') }}</h3><p>{{ t('pages.devices.step3_text') }}</p></article>
     </div>
-    <div class="page-actions"><a class="btn btn-primary" href="https://wa.me/{{ site.settings.whatsapp_phone }}" data-whatsapp="support" target="_blank" rel="noopener noreferrer">{{ icon('whatsapp') }} Get setup help</a></div>
+    <div class="page-actions"><a class="btn btn-primary" href="https://wa.me/{{ site.settings.whatsapp_phone }}" data-whatsapp="support" target="_blank" rel="noopener noreferrer">{{ icon('whatsapp') }} {{ t('pages.devices.get_help') }}</a></div>
   </div>
 </section>
 
 {% elif page_slug == 'reseller' %}
 <section class="page-intro">
   <div class="container">
-    <span class="eyebrow">LET’S TALK BUSINESS</span>
-    <h1>Explore a new <span class="gradient-text">partnership.</span></h1>
-    <p>Interested in becoming an Infinity Stream TV reseller? Tell us about your business and market, and we’ll discuss the program with you.</p>
+    <span class="eyebrow">{{ t('pages.reseller.eyebrow') }}</span>
+    <h1>{{ t('pages.reseller.heading_line1') }} <span class="gradient-text">{{ t('pages.reseller.heading_gradient') }}</span></h1>
+    <p>{{ t('pages.reseller.intro') }}</p>
   </div>
 </section>
 <section class="section section-compact">
   <div class="container split-layout">
     <div class="info-panel">
-      <span class="eyebrow">THE RESELLER PROGRAM</span>
-      <h2>Start with <span class="gradient-text">a conversation.</span></h2>
-      <p>We’ll help you understand the available reseller options, eligibility requirements, and the responsibilities involved.</p>
+      <span class="eyebrow">{{ t('pages.reseller.panel_eyebrow') }}</span>
+      <h2>{{ t('pages.reseller.panel_heading_line1') }} <span class="gradient-text">{{ t('pages.reseller.panel_heading_gradient') }}</span></h2>
+      <p>{{ t('pages.reseller.panel_text') }}</p>
       <ul class="feature-list">
-        <li>{{ icon('check') }} <span>Discuss your market and customer needs</span></li>
-        <li>{{ icon('check') }} <span>Confirm pricing, access, and account limits</span></li>
-        <li>{{ icon('check') }} <span>Understand setup and support arrangements</span></li>
-        <li>{{ icon('check') }} <span>Review the agreement before committing</span></li>
+        <li>{{ icon('check') }} <span>{{ t('pages.reseller.feature1') }}</span></li>
+        <li>{{ icon('check') }} <span>{{ t('pages.reseller.feature2') }}</span></li>
+        <li>{{ icon('check') }} <span>{{ t('pages.reseller.feature3') }}</span></li>
+        <li>{{ icon('check') }} <span>{{ t('pages.reseller.feature4') }}</span></li>
       </ul>
-      <p class="notice">Program access and terms are confirmed individually. Submitting an enquiry does not automatically create a reseller account.</p>
-      <a class="btn btn-secondary" href="https://wa.me/{{ site.settings.whatsapp_phone }}" data-whatsapp="reseller" target="_blank" rel="noopener noreferrer">{{ icon('whatsapp') }} Chat about reselling</a>
+      <p class="notice">{{ t('pages.reseller.notice') }}</p>
+      <a class="btn btn-secondary" href="https://wa.me/{{ site.settings.whatsapp_phone }}" data-whatsapp="reseller" target="_blank" rel="noopener noreferrer">{{ icon('whatsapp') }} {{ t('pages.reseller.chat_cta') }}</a>
     </div>
-    <div class="contact-card"><h2>Tell us about your business</h2><p>{% if is_static %}Add a few details to prepare a WhatsApp message for our team.{% else %}Leave a few details and your preferred contact method.{% endif %}</p>{{ enquiry_form(kind='reseller') }}</div>
+    <div class="contact-card"><h2>{{ t('pages.reseller.form_heading') }}</h2><p>{% if is_static %}{{ t('pages.reseller.form_text_static') }}{% else %}{{ t('pages.reseller.form_text_live') }}{% endif %}</p>{{ enquiry_form(kind='reseller') }}</div>
   </div>
 </section>
 
 {% elif page_slug == 'faq' %}
 <section class="page-intro">
   <div class="container">
-    <span class="eyebrow">A LITTLE CLARITY GOES A LONG WAY</span>
-    <h1>Good questions. <span class="gradient-text">Clear answers.</span></h1>
-    <p>From choosing a plan to setting up your screen, here are the things to know before you get started.</p>
+    <span class="eyebrow">{{ t('pages.faq.eyebrow') }}</span>
+    <h1>{{ t('pages.faq.heading_line1') }} <span class="gradient-text">{{ t('pages.faq.heading_gradient') }}</span></h1>
+    <p>{{ t('pages.faq.intro') }}</p>
   </div>
 </section>
 <section class="section section-compact">
@@ -152,10 +157,10 @@
     <div>{{ faqs() }}</div>
     <aside class="info-panel">
       <div class="panel-icon">{{ icon('headphones') }}</div>
-      <h2>Let’s help you <span class="gradient-text">find the answer.</span></h2>
-      <p>For questions about a particular device, plan, or channel, send our team the details so we can check your setup.</p>
-      <a class="btn btn-primary" href="https://wa.me/{{ site.settings.whatsapp_phone }}" data-whatsapp="support" target="_blank" rel="noopener noreferrer">{{ icon('whatsapp') }} Ask on WhatsApp</a>
-      <div class="inline-links"><a href="/devices#setup-guide">Setup overview</a><a href="/refund-policy">Refund enquiries</a></div>
+      <h2>{{ t('pages.faq.panel_heading_line1') }} <span class="gradient-text">{{ t('pages.faq.panel_heading_gradient') }}</span></h2>
+      <p>{{ t('pages.faq.panel_text') }}</p>
+      <a class="btn btn-primary" href="https://wa.me/{{ site.settings.whatsapp_phone }}" data-whatsapp="support" target="_blank" rel="noopener noreferrer">{{ icon('whatsapp') }} {{ t('pages.faq.ask_whatsapp') }}</a>
+      <div class="inline-links"><a href="/devices#setup-guide">{{ t('pages.faq.setup_overview') }}</a><a href="/refund-policy">{{ t('pages.faq.refund_enquiries') }}</a></div>
     </aside>
   </div>
 </section>
@@ -163,90 +168,90 @@
 {% elif page_slug == 'contact' %}
 <section class="page-intro">
   <div class="container">
-    <span class="eyebrow">WE’RE HERE TO HELP</span>
-    <h1>Your next step starts <span class="gradient-text">with a hello.</span></h1>
-    <p>Ask about a plan, check a device, or get help with your setup. Share what you need and we’ll take it from there.</p>
+    <span class="eyebrow">{{ t('pages.contact.eyebrow') }}</span>
+    <h1>{{ t('pages.contact.heading_line1') }} <span class="gradient-text">{{ t('pages.contact.heading_gradient') }}</span></h1>
+    <p>{{ t('pages.contact.intro') }}</p>
   </div>
 </section>
 <section class="section section-compact">
   <div class="container split-layout">
     <div class="info-panel">
       <div class="panel-icon">{{ icon('whatsapp') }}</div>
-      <span class="eyebrow">LET’S CONNECT</span>
-      <h2>A conversation <span class="gradient-text">made simple.</span></h2>
-      <p>WhatsApp is our main contact channel. Your message opens for you to review and send.</p>
+      <span class="eyebrow">{{ t('pages.contact.panel_eyebrow') }}</span>
+      <h2>{{ t('pages.contact.panel_heading_line1') }} <span class="gradient-text">{{ t('pages.contact.panel_heading_gradient') }}</span></h2>
+      <p>{{ t('pages.contact.panel_text') }}</p>
       <a class="contact-detail" href="https://wa.me/{{ site.settings.whatsapp_phone }}" data-whatsapp="support" target="_blank" rel="noopener noreferrer">{{ site.settings.whatsapp_display }}</a>
-      <div class="page-actions"><a class="btn btn-primary" href="https://wa.me/{{ site.settings.whatsapp_phone }}" data-whatsapp="support" target="_blank" rel="noopener noreferrer">{{ icon('whatsapp') }} Open WhatsApp {{ icon('arrow-right') }}</a></div>
+      <div class="page-actions"><a class="btn btn-primary" href="https://wa.me/{{ site.settings.whatsapp_phone }}" data-whatsapp="support" target="_blank" rel="noopener noreferrer">{{ icon('whatsapp') }} {{ t('pages.contact.open_whatsapp') }} {{ icon('arrow-right', 'icon-flip-rtl') }}</a></div>
       <div class="contact-options">
-        <h3>A few useful details</h3>
-        <p>For setup help, include your device model and player. For plan enquiries, tell us your country and how many screens you’d like to use.</p>
-        <div class="inline-links"><a href="/faq">Read the FAQ</a><a href="/devices">Explore device setup</a></div>
+        <h3>{{ t('pages.contact.details_heading') }}</h3>
+        <p>{{ t('pages.contact.details_text') }}</p>
+        <div class="inline-links"><a href="/faq">{{ t('pages.contact.read_faq') }}</a><a href="/devices">{{ t('pages.contact.explore_devices') }}</a></div>
       </div>
     </div>
-    <div class="contact-card"><h2>{% if is_static %}Prepare your message{% else %}Send an enquiry{% endif %}</h2><p>{% if is_static %}Fill in the details below to create a WhatsApp draft you can review and send.{% else %}Prefer to leave your details? Use the form below.{% endif %}</p>{{ enquiry_form(kind='contact') }}</div>
+    <div class="contact-card"><h2>{% if is_static %}{{ t('pages.contact.form_heading_static') }}{% else %}{{ t('pages.contact.form_heading_live') }}{% endif %}</h2><p>{% if is_static %}{{ t('pages.contact.form_text_static') }}{% else %}{{ t('pages.contact.form_text_live') }}{% endif %}</p>{{ enquiry_form(kind='contact') }}</div>
   </div>
 </section>
 
 {% elif page_slug in ['privacy', 'terms', 'refund-policy'] %}
-{% set legal_titles = {'privacy': 'Privacy policy', 'terms': 'Terms of service', 'refund-policy': 'Refund & cancellation'} %}
+{% set legal_titles = {'privacy': t('legal.titles.privacy'), 'terms': t('legal.titles.terms'), 'refund-policy': t('legal.titles.refund_policy')} %}
 <section class="page-intro">
   <div class="container">
-    <span class="eyebrow">THE DETAILS MATTER</span>
+    <span class="eyebrow">{{ t('legal.intro_eyebrow') }}</span>
     <h1>{{ legal_titles[page_slug] }}</h1>
-    <p>{% if page_slug == 'privacy' %}How information shared through this website is used, and how to contact us about it.{% elif page_slug == 'terms' %}What to know when using this website and enquiring about an Infinity Stream TV subscription.{% else %}How to check the applicable terms and contact us about a cancellation or refund request.{% endif %}</p>
+    <p>{% if page_slug == 'privacy' %}{{ t('legal.intro.privacy') }}{% elif page_slug == 'terms' %}{{ t('legal.intro.terms') }}{% else %}{{ t('legal.intro.refund_policy') }}{% endif %}</p>
   </div>
 </section>
 <section class="section section-compact">
   <div class="container legal-layout">
-    <nav class="legal-nav" aria-label="Policies">
-      {% for slug, label in legal_titles.items() %}<a href="/{{ slug }}" {% if page_slug == slug %}aria-current="page"{% endif %}>{{ label }} {{ icon('arrow-right') }}</a>{% endfor %}
-      <a href="/contact">Contact support {{ icon('arrow-right') }}</a>
+    <nav class="legal-nav" aria-label="{{ t('legal.nav_aria') }}">
+      {% for slug, label in legal_titles.items() %}<a href="/{{ slug }}" {% if page_slug == slug %}aria-current="page"{% endif %}>{{ label }} {{ icon('arrow-right', 'icon-flip-rtl') }}</a>{% endfor %}
+      <a href="/contact">{{ t('legal.nav_contact') }} {{ icon('arrow-right', 'icon-flip-rtl') }}</a>
     </nav>
     <article class="legal-content">
       {% if page_slug == 'privacy' %}
-      <h2>Information you share</h2>
+      <h2>{{ t('legal.privacy.heading_shared1') }}</h2>
       {% if is_static %}
-      <p>The contact and reseller forms prepare a WhatsApp draft using the details you enter, such as your name, country, contact details, selected plan, and message. The form does not send or store an enquiry on this website. You decide whether to send the prepared message in WhatsApp.</p>
-      <h2>How enquiry information is used</h2>
-      <p>If you send the WhatsApp message, our team uses the information you share to respond to your enquiry, discuss subscription or reseller options, and provide related setup or support. Provide only the details needed to help with your request.</p>
-      <h2>Website security and cookies</h2>
-      <p>This version of the website prepares form messages in your browser and does not create an enquiry database or a form-security session cookie. The enquiry form does not ask for payment-card details.</p>
+      <p>{{ t('legal.privacy.static.body1') }}</p>
+      <h2>{{ t('legal.privacy.heading_info_used') }}</h2>
+      <p>{{ t('legal.privacy.static.body2') }}</p>
+      <h2>{{ t('legal.privacy.heading_security') }}</h2>
+      <p>{{ t('legal.privacy.static.body3') }}</p>
       {% else %}
-      <p>When you submit a contact or reseller enquiry, we receive the information entered in the form. This may include your name, country, preferred contact method, contact details, selected plan, and message. Provide only the details needed to help with your request.</p>
-      <h2>How enquiry information is used</h2>
-      <p>Information submitted through this website is used to respond to your enquiry, discuss subscription or reseller options, and provide related setup or support. Validated enquiries are saved in our enquiry database so they can be handled by the team.</p>
-      <h2>Website security and cookies</h2>
-      <p>This website uses an essential session cookie and form-security tokens to protect enquiry submissions. We do not ask for payment-card details through the enquiry forms.</p>
+      <p>{{ t('legal.privacy.live.body1') }}</p>
+      <h2>{{ t('legal.privacy.heading_info_used') }}</h2>
+      <p>{{ t('legal.privacy.live.body2') }}</p>
+      <h2>{{ t('legal.privacy.heading_security') }}</h2>
+      <p>{{ t('legal.privacy.live.body3') }}</p>
       {% endif %}
-      <h2>WhatsApp and external services</h2>
-      <p>WhatsApp links open a separate service. You review and send the message yourself. Information shared with WhatsApp is also subject to that service’s privacy practices. Other external links, if used, are governed by their respective providers.</p>
-      <h2>Your information and requests</h2>
-      <p>Contact us if you want to ask about an enquiry you submitted, correct its details, or request its deletion. Include enough information to identify your request, but do not send passwords, account credentials, or payment-card information.</p>
-      <a class="btn btn-secondary" href="https://wa.me/{{ site.settings.whatsapp_phone }}" data-whatsapp="privacy" target="_blank" rel="noopener noreferrer">Contact us about privacy {{ icon('arrow-right') }}</a>
+      <h2>{{ t('legal.privacy.heading_whatsapp') }}</h2>
+      <p>{{ t('legal.privacy.body_whatsapp') }}</p>
+      <h2>{{ t('legal.privacy.heading_requests') }}</h2>
+      <p>{{ t('legal.privacy.body_requests') }}</p>
+      <a class="btn btn-secondary" href="https://wa.me/{{ site.settings.whatsapp_phone }}" data-whatsapp="privacy" target="_blank" rel="noopener noreferrer">{{ t('legal.privacy.contact_cta') }} {{ icon('arrow-right', 'icon-flip-rtl') }}</a>
       {% elif page_slug == 'terms' %}
-      <h2>Using this website</h2>
-      <p>This website provides information about Infinity Stream TV, plan options, content categories, device setup, and ways to contact the team. An enquiry is a request for information; it does not itself create a subscription, process a payment, or issue account credentials.</p>
-      <h2>Confirm your subscription details</h2>
-      <p>Before purchasing, confirm the current price, billing period, available content, supported devices, number of simultaneous connections, activation process, and applicable cancellation or refund terms directly with support.</p>
-      <h2>Availability and compatibility</h2>
-      <p>Content and device options can vary by plan, location, device model, operating system, and player. Category images illustrate the type of content being discussed. Ask for confirmation of any specific channel, title, app, or device that matters to you.</p>
-      <h2>Trials and reseller arrangements</h2>
-      <p>Trial availability, duration, and eligibility must be confirmed with support. Reseller enquiries are assessed separately, and any account access or commercial terms are provided only after the relevant arrangement is confirmed.</p>
-      <h2>Account and setup information</h2>
-      <p>Keep any account details provided to you private. Follow the usage limits and setup instructions confirmed for your plan. Do not send account passwords or other sensitive credentials through the public enquiry form.</p>
-      <h2>Questions before purchase</h2>
-      <p>If a detail is unclear, ask for written confirmation before paying. The subscription information confirmed during your enquiry should explain the service and terms you are agreeing to.</p>
-      <a class="btn btn-secondary" href="/contact">Discuss the terms {{ icon('arrow-right') }}</a>
+      <h2>{{ t('legal.terms.heading1') }}</h2>
+      <p>{{ t('legal.terms.body1') }}</p>
+      <h2>{{ t('legal.terms.heading2') }}</h2>
+      <p>{{ t('legal.terms.body2') }}</p>
+      <h2>{{ t('legal.terms.heading3') }}</h2>
+      <p>{{ t('legal.terms.body3') }}</p>
+      <h2>{{ t('legal.terms.heading4') }}</h2>
+      <p>{{ t('legal.terms.body4') }}</p>
+      <h2>{{ t('legal.terms.heading5') }}</h2>
+      <p>{{ t('legal.terms.body5') }}</p>
+      <h2>{{ t('legal.terms.heading6') }}</h2>
+      <p>{{ t('legal.terms.body6') }}</p>
+      <a class="btn btn-secondary" href="/contact">{{ t('legal.terms.cta') }} {{ icon('arrow-right', 'icon-flip-rtl') }}</a>
       {% else %}
-      <h2>Check the terms before you pay</h2>
-      <p>The website does not process subscription payments. Contact support before purchasing to confirm whether a refund or cancellation is available for your selected plan, along with any eligibility conditions, deadlines, and payment arrangements.</p>
-      <h2>Request a cancellation or refund</h2>
-      <p>Contact the team on WhatsApp with your plan name, purchase or activation date, and a brief explanation of your request. Include an order or transaction reference if you have one. Do not send full payment-card details, passwords, or private account credentials.</p>
-      <h2>If you are having a setup issue</h2>
-      <p>Share your device model, player, and a description of the problem so support can review the setup. You may also request clarification of the cancellation or refund terms that were confirmed when you purchased.</p>
-      <h2>What happens next</h2>
-      <p>The team will review your request against the terms agreed for your subscription and explain the available next steps. Submitting a request through this website or WhatsApp does not automatically confirm a refund or cancellation.</p>
-      <a class="btn btn-primary" href="https://wa.me/{{ site.settings.whatsapp_phone }}" data-whatsapp="refund" target="_blank" rel="noopener noreferrer">{{ icon('whatsapp') }} Discuss a refund request {{ icon('arrow-right') }}</a>
+      <h2>{{ t('legal.refund.heading1') }}</h2>
+      <p>{{ t('legal.refund.body1') }}</p>
+      <h2>{{ t('legal.refund.heading2') }}</h2>
+      <p>{{ t('legal.refund.body2') }}</p>
+      <h2>{{ t('legal.refund.heading3') }}</h2>
+      <p>{{ t('legal.refund.body3') }}</p>
+      <h2>{{ t('legal.refund.heading4') }}</h2>
+      <p>{{ t('legal.refund.body4') }}</p>
+      <a class="btn btn-primary" href="https://wa.me/{{ site.settings.whatsapp_phone }}" data-whatsapp="refund" target="_blank" rel="noopener noreferrer">{{ icon('whatsapp') }} {{ t('legal.refund.cta') }} {{ icon('arrow-right', 'icon-flip-rtl') }}</a>
       {% endif %}
     </article>
   </div>
@@ -254,12 +259,12 @@
 {% elif page_slug == 'error' %}
 <section class="page-intro">
   <div class="container">
-    <span class="eyebrow">LET’S FIND YOUR WAY</span>
-    <h1>{{ error_title | default('Page not found', true) }}</h1>
-    <p>{{ error_message | default('We couldn’t find that page. Head back to the homepage or contact our team for help.', true) }}</p>
+    <span class="eyebrow">{{ t('error.eyebrow') }}</span>
+    <h1>{{ error_title | default(t('error.default_title'), true) }}</h1>
+    <p>{{ error_message | default(t('error.default_message'), true) }}</p>
     <div class="page-actions">
-      <a class="btn btn-primary" href="/">Back to home {{ icon('arrow-right') }}</a>
-      <a class="btn btn-secondary" href="/contact">Contact support</a>
+      <a class="btn btn-primary" href="/">{{ t('error.back_home') }} {{ icon('arrow-right', 'icon-flip-rtl') }}</a>
+      <a class="btn btn-secondary" href="/contact">{{ t('error.contact_support') }}</a>
     </div>
   </div>
 </section>

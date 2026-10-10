@@ -50,7 +50,7 @@ def form(client, **changes):
     assert parser.values.get("csrf_token"), "The live enquiry form must contain a CSRF token."
     values = {
         "name": "Test Customer", "country": "Bangladesh", "contact_method": "whatsapp",
-        "contact": "+880 1310 993838", "message": "Please share the current Premium Plan details.",
+        "contact": "+880 1710 112233", "message": "Please share the current Premium Plan details.",
         "plan": "premium", "source_page": "contact", "website": "",
         "csrf_token": parser.values["csrf_token"],
     }
@@ -76,19 +76,19 @@ def test_public_routes_have_metadata(client, route):
     assert response.headers["Cache-Control"] == "no-store"
 
 
-@pytest.mark.parametrize("contact", ["+880 1310 993838", "+880.1310.993838"])
+@pytest.mark.parametrize("contact", ["+880 1710 112233", "+880.1710.112233"])
 def test_success_saves_minimum_fields_and_opens_reviewable_whatsapp(client, app, contact):
     response = client.post("/enquiry", data=form(client, contact=contact))
     assert response.status_code == 303
     destination = urlsplit(response.location)
     assert destination.scheme == "https"
     assert destination.netloc == "wa.me"
-    assert destination.path == "/8801310993838"
+    assert destination.path == "/8801874608217"
     text = parse_qs(destination.query)["text"][0]
     assert "Premium Plan" in text and "Test Customer" in text
     rows = stored(app)
     assert len(rows) == 1
-    assert rows[0]["contact"] == "+8801310993838"
+    assert rows[0]["contact"] == "+8801710112233"
     assert rows[0]["status"] == "new"
     assert "ip" not in rows[0].keys()
 
@@ -99,7 +99,7 @@ def test_json_success_reports_saved_enquiry_not_sent_message(client, app):
     result = response.get_json()
     assert result["saved"] is True
     assert "Review and send" in result["message"]
-    assert result["whatsapp_url"].startswith("https://wa.me/8801310993838?")
+    assert result["whatsapp_url"].startswith("https://wa.me/8801874608217?")
     assert len(stored(app)) == 1
 
 

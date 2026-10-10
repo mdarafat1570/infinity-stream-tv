@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{ locale }}" dir="{{ text_dir }}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,6 +7,8 @@
   <title>{{ page_title }}</title>
   <meta name="description" content="{{ page_description }}">
   {% if canonical_url %}<link rel="canonical" href="{{ canonical_url }}">{% endif %}
+  {% if alternate_en_url %}<link rel="alternate" hreflang="en" href="{{ alternate_en_url }}">{% endif %}
+  {% if alternate_ar_url %}<link rel="alternate" hreflang="ar" href="{{ alternate_ar_url }}">{% endif %}
   <meta property="og:title" content="{{ page_title }}">
   <meta property="og:description" content="{{ page_description }}">
   <meta property="og:type" content="website">
@@ -19,42 +21,45 @@
 </head>
 <body data-page="{{ page_slug }}" data-static="{{ 'true' if is_static else 'false' }}">
   {% from '_components.html' import icon with context %}
-  <a class="skip-link" href="#main-content">Skip to content</a>
+  <a class="skip-link" href="#main-content">{{ t('a11y.skip_to_content') }}</a>
   <header class="site-header">
     <div class="header-inner container">
-      <a class="brand" href="/" aria-label="Infinity Stream TV home"><span class="brand-art" role="img" aria-label="Infinity Stream TV"></span></a>
-      <nav class="desktop-nav" aria-label="Main navigation">
-        <a href="/" {% if page_slug == 'home' %}aria-current="page"{% endif %}>Home</a>
-        <a href="/channels?category=live-tv">Live TV</a>
-        <a href="/channels?category=movies">Movies</a>
-        <a href="/channels?category=series">Series</a>
-        <a href="/channels#countries">Countries</a>
-        <a href="/pricing" {% if page_slug == 'pricing' %}aria-current="page"{% endif %}>Pricing</a>
-        <a href="/reseller" {% if page_slug == 'reseller' %}aria-current="page"{% endif %}>Reseller</a>
-        <a href="/devices" {% if page_slug == 'devices' %}aria-current="page"{% endif %}>Apps</a>
-        <a href="/contact" {% if page_slug == 'contact' %}aria-current="page"{% endif %}>Support</a>
+      <a class="brand" href="/" aria-label="{{ t('nav.brand_home_aria') }}"><span class="brand-art" role="img" aria-label="Infinity Stream TV"></span></a>
+      <nav class="desktop-nav" aria-label="{{ t('nav.main_nav_aria') }}">
+        <a href="/" {% if page_slug == 'home' %}aria-current="page"{% endif %}>{{ t('nav.home') }}</a>
+        <a href="/channels?category=live-tv">{{ t('nav.live_tv') }}</a>
+        <a href="/channels?category=movies">{{ t('nav.movies') }}</a>
+        <a href="/channels?category=series">{{ t('nav.series') }}</a>
+        <a href="/channels#countries">{{ t('nav.countries') }}</a>
+        <a href="/pricing" {% if page_slug == 'pricing' %}aria-current="page"{% endif %}>{{ t('nav.pricing') }}</a>
+        <a href="/reseller" {% if page_slug == 'reseller' %}aria-current="page"{% endif %}>{{ t('nav.reseller') }}</a>
+        <a href="/devices" {% if page_slug == 'devices' %}aria-current="page"{% endif %}>{{ t('nav.apps') }}</a>
+        <a href="/contact" {% if page_slug == 'contact' %}aria-current="page"{% endif %}>{{ t('nav.support') }}</a>
       </nav>
       <div class="header-actions">
-        <span class="language" title="English. Arabic support is planned.">{{ icon('globe') }}<span>English</span></span>
-        <a class="btn btn-primary header-trial" href="{{ whatsapp_url('trial') }}" data-whatsapp="trial" target="_blank" rel="noopener noreferrer">Request a Trial {{ icon('arrow') }}</a>
-        <button class="menu-toggle icon-button" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-nav">{{ icon('menu') }}</button>
+        <div class="language-switch" role="group" aria-label="{{ t('nav.main_nav_aria') }}">
+          <a href="{{ lang_url_en }}" class="lang-option {{ 'active' if locale == 'en' }}" aria-label="{{ t('lang.switch_to_en_aria') }}" {% if locale == 'en' %}aria-current="true"{% endif %}>{{ t('lang.en_label') }}</a>
+          <a href="{{ lang_url_ar }}" class="lang-option {{ 'active' if locale == 'ar' }}" aria-label="{{ t('lang.switch_to_ar_aria') }}" {% if locale == 'ar' %}aria-current="true"{% endif %}>{{ t('lang.ar_label') }}</a>
+        </div>
+        <a class="btn btn-primary header-trial" href="{{ whatsapp_url('trial') }}" data-whatsapp="trial" target="_blank" rel="noopener noreferrer">{{ t('nav.request_trial') }} {{ icon('arrow', 'icon-flip-rtl') }}</a>
+        <button class="menu-toggle icon-button" type="button" aria-label="{{ t('nav.menu_open_aria') }}" aria-expanded="false" aria-controls="mobile-nav">{{ icon('menu') }}</button>
       </div>
     </div>
-    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
-      <a href="/">Home</a><a href="/channels?category=live-tv">Live TV</a><a href="/channels?category=movies">Movies</a><a href="/channels?category=series">Series</a><a href="/channels#countries">Countries</a><a href="/pricing">Pricing</a><a href="/reseller">Reseller</a><a href="/devices">Apps & Devices</a><a href="/contact">Support</a>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="{{ t('nav.mobile_nav_aria') }}" hidden>
+      <a href="/">{{ t('nav.home') }}</a><a href="/channels?category=live-tv">{{ t('nav.live_tv') }}</a><a href="/channels?category=movies">{{ t('nav.movies') }}</a><a href="/channels?category=series">{{ t('nav.series') }}</a><a href="/channels#countries">{{ t('nav.countries') }}</a><a href="/pricing">{{ t('nav.pricing') }}</a><a href="/reseller">{{ t('nav.reseller') }}</a><a href="/devices">{{ t('nav.apps_devices') }}</a><a href="/contact">{{ t('nav.support') }}</a>
     </nav>
   </header>
   <main id="main-content">{% block content %}{% endblock %}</main>
   <footer class="site-footer">
     <div class="container footer-top">
-      <div class="footer-brand"><a class="brand" href="/" aria-label="Infinity Stream TV home"><span class="brand-art" role="img" aria-label="Infinity Stream TV"></span></a><p>A world of entertainment.<br>A little closer to you.</p></div>
-      <div class="footer-links"><h2>Explore</h2><a href="/channels">Content library</a><a href="/pricing">Subscription plans</a><a href="/reseller">Become a reseller</a></div>
-      <div class="footer-links"><h2>Need a hand?</h2><a href="/devices">Apps & devices</a><a href="/devices#setup-guide">Setup guide</a><a href="/faq">Frequently asked questions</a><a href="/contact">Contact & support</a></div>
-      <div class="footer-contact"><h2>Let’s talk entertainment</h2><p>Ask about availability, your device,<br>or the right plan for you.</p><a href="{{ whatsapp_url() }}" data-whatsapp="general" target="_blank" rel="noopener noreferrer">{{ icon('whatsapp') }} {{ site.settings.whatsapp_display }}</a></div>
+      <div class="footer-brand"><a class="brand" href="/" aria-label="{{ t('footer.brand_home_aria') }}"><span class="brand-art" role="img" aria-label="Infinity Stream TV"></span></a><p>{{ t('footer.tagline_line1') }}<br>{{ t('footer.tagline_line2') }}</p></div>
+      <div class="footer-links"><h2>{{ t('footer.explore_heading') }}</h2><a href="/channels">{{ t('footer.explore_content_library') }}</a><a href="/pricing">{{ t('footer.explore_subscription_plans') }}</a><a href="/reseller">{{ t('footer.explore_become_reseller') }}</a></div>
+      <div class="footer-links"><h2>{{ t('footer.help_heading') }}</h2><a href="/devices">{{ t('footer.help_apps_devices') }}</a><a href="/devices#setup-guide">{{ t('footer.help_setup_guide') }}</a><a href="/faq">{{ t('footer.help_faq') }}</a><a href="/contact">{{ t('footer.help_contact') }}</a></div>
+      <div class="footer-contact"><h2>{{ t('footer.contact_heading') }}</h2><p>{{ t('footer.contact_copy') }}</p><a href="{{ whatsapp_url() }}" data-whatsapp="general" target="_blank" rel="noopener noreferrer">{{ icon('whatsapp') }} {{ site.settings.whatsapp_display }}</a></div>
     </div>
-    <div class="container footer-bottom"><span>© {{ current_year }} Infinity Stream TV. All rights reserved.</span><div><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/refund-policy">Refund policy</a></div></div>
+    <div class="container footer-bottom"><span>{{ t('footer.copyright', year=current_year) }}</span><div><a href="/privacy">{{ t('footer.privacy') }}</a><a href="/terms">{{ t('footer.terms') }}</a><a href="/refund-policy">{{ t('footer.refund_policy') }}</a></div></div>
   </footer>
-  <a class="floating-whatsapp" href="{{ whatsapp_url() }}" data-whatsapp="general" aria-label="Chat with Infinity Stream TV on WhatsApp" target="_blank" rel="noopener noreferrer">{{ icon('whatsapp') }}</a>
+  <a class="floating-whatsapp" href="{{ whatsapp_url() }}" data-whatsapp="general" aria-label="{{ t('footer.whatsapp_chat_aria') }}" target="_blank" rel="noopener noreferrer">{{ icon('whatsapp') }}</a>
   <script id="site-config" type="application/json">{{ site|tojson }}</script>
 </body>
 </html>

@@ -1,0 +1,395 @@
+{
+  "meta": {
+    "lang_name": "English"
+  },
+  "a11y": {
+    "skip_to_content": "Skip to content"
+  },
+  "nav": {
+    "brand_home_aria": "Infinity Stream TV home",
+    "main_nav_aria": "Main navigation",
+    "mobile_nav_aria": "Mobile navigation",
+    "home": "Home",
+    "live_tv": "Live TV",
+    "movies": "Movies",
+    "series": "Series",
+    "countries": "Countries",
+    "pricing": "Pricing",
+    "reseller": "Reseller",
+    "apps": "Apps",
+    "apps_devices": "Apps & Devices",
+    "support": "Support",
+    "menu_open_aria": "Open navigation",
+    "menu_close_aria": "Close navigation",
+    "request_trial": "Request a Trial"
+  },
+  "lang": {
+    "en_label": "EN",
+    "ar_label": "عربي",
+    "switch_to_en_aria": "Switch to English",
+    "switch_to_ar_aria": "التبديل إلى العربية"
+  },
+  "footer": {
+    "brand_home_aria": "Infinity Stream TV home",
+    "tagline_line1": "A world of entertainment.",
+    "tagline_line2": "A little closer to you.",
+    "explore_heading": "Explore",
+    "explore_content_library": "Content library",
+    "explore_subscription_plans": "Subscription plans",
+    "explore_become_reseller": "Become a reseller",
+    "help_heading": "Need a hand?",
+    "help_apps_devices": "Apps & devices",
+    "help_setup_guide": "Setup guide",
+    "help_faq": "Frequently asked questions",
+    "help_contact": "Contact & support",
+    "contact_heading": "Let’s talk entertainment",
+    "contact_copy": "Ask about availability, your device,<br>or the right plan for you.",
+    "whatsapp_chat_aria": "Chat with Infinity Stream TV on WhatsApp",
+    "copyright": "© {year} Infinity Stream TV. All rights reserved.",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "refund_policy": "Refund policy"
+  },
+  "hero": {
+    "eyebrow": "ENTERTAINMENT, REIMAGINED",
+    "heading_line1": "Your World of",
+    "heading_line2": "Entertainment",
+    "paragraph_line1": "Live TV, movie nights, and stories worth staying in for.",
+    "paragraph_line2": "Discover your next favourite, on your favourite screen.",
+    "feature_tv": "Big-screen<br>entertainment",
+    "feature_world": "A world<br>of stories",
+    "feature_support": "Friendly<br>support",
+    "feature_setup": "Simple<br>setup",
+    "cta_trial": "Request a Free Trial",
+    "cta_plans": "View Plans",
+    "cta_channels": "Browse All Channels",
+    "trial_note_enabled": "{hours}-hour free trial available. Ask our team about eligibility and limits.",
+    "trial_note_disabled": "Ask our team about current trial availability.",
+    "visual_aria": "Illustrative Infinity Stream TV interface on a television, tablet and phone, featuring original adventure artwork",
+    "tv_nav_discover": "Discover",
+    "tv_nav_movies": "Movies",
+    "tv_nav_series": "Series",
+    "tv_nav_my_list": "My list",
+    "tv_feature_eyebrow": "DISCOVER SOMETHING EXTRAORDINARY",
+    "tv_feature_heading_line1": "Beyond",
+    "tv_feature_heading_line2": "the Horizon",
+    "tv_feature_tag": "Adventure · Original artwork",
+    "tv_feature_play": "Explore your world",
+    "tv_picks_label": "Something for every mood",
+    "tablet_header": "Live a little. Watch a lot.",
+    "tablet_bottom": "Your next match. Your front-row seat.",
+    "interface_caption": "Illustrative interface · content availability varies"
+  },
+  "country": {
+    "strip_aria": "Enquire about your country",
+    "item_aria": "Enquire about availability in {country}",
+    "more": "More",
+    "note": "Your entertainment, wherever you call home.",
+    "check_cta": "Check availability with us"
+  },
+  "library": {
+    "eyebrow": "FIND YOUR NEXT FAVOURITE",
+    "heading_line1": "Explore Our",
+    "heading_line2": "Content Library",
+    "subtitle": "Every mood. Every moment. A world to explore.",
+    "view_all": "View all content"
+  },
+  "device_showcase": {
+    "eyebrow": "YOUR SCREEN. YOUR WAY.",
+    "heading_line1": "Make yourself",
+    "heading_line2": "right at home.",
+    "paragraph_line1": "From a quiet night on the sofa to entertainment on the go,",
+    "paragraph_line2": "let’s find the right setup for your device.",
+    "find_setup": "Find your device & setup guide",
+    "room_caption_line1": "One screen.",
+    "room_caption_line2": "Endless possibilities."
+  },
+  "pricing_home": {
+    "eyebrow": "A PLAN THAT FITS YOU",
+    "heading_line1": "Choose",
+    "heading_line2": "Your Plan",
+    "subtitle": "Your entertainment, your way. Let’s find your perfect fit."
+  },
+  "how": {
+    "eyebrow": "LESS SETUP. MORE SOFA TIME.",
+    "heading_line1": "Your next great night in",
+    "heading_line2_plain": "starts in ",
+    "heading_line2_gradient": "three simple steps.",
+    "step1_title": "Tell us what you love",
+    "step1_text": "Share your country, favourite content, and the device you’d like to use.",
+    "step2_title": "Find the right plan",
+    "step2_text": "Chat with our team about availability, current prices, and trial options.",
+    "step3_title": "Settle in and enjoy",
+    "step3_text": "Get the setup instructions for your confirmed device and subscription."
+  },
+  "faq_home": {
+    "eyebrow": "GOOD TO KNOW",
+    "heading_line1": "A few questions.",
+    "heading_line2": "Clear answers.",
+    "paragraph_line1": "New to Infinity Stream TV?",
+    "paragraph_line2": "We’re here to help you get started.",
+    "see_all": "See all questions"
+  },
+  "final_cta": {
+    "eyebrow": "YOUR NEXT FAVOURITE IS WAITING",
+    "heading_line1": "Let’s make tonight",
+    "heading_line2": "a little more entertaining.",
+    "paragraph": "Find out what’s available for you. Our team is one message away.",
+    "button": "Let’s chat on WhatsApp"
+  },
+  "home": {
+    "movies_row_title": "Popular Movie Genres",
+    "movies_row_subtitle": "A taste of what you can ask about.",
+    "series_row_title": "Series & Dramas to Binge",
+    "series_row_subtitle": "Something for every mood, night after night.",
+    "live_tv_row_title": "Live TV Categories",
+    "live_tv_row_subtitle": "Catch it live, as it happens.",
+    "row_prev_aria": "Scroll {row} left",
+    "row_next_aria": "Scroll {row} right",
+    "row_track_aria": "{row}, scroll with arrow keys",
+    "row_card_cta": "Ask about this",
+    "row_card_cta_aria": "Ask about {label} on WhatsApp"
+  },
+  "pages": {
+    "pricing": {
+      "eyebrow": "YOUR ENTERTAINMENT, YOUR WAY",
+      "heading_line1": "A plan for",
+      "heading_gradient": "every screen.",
+      "intro": "Explore the options below. Our team will help you confirm pricing, available content, and the right plan for your setup.",
+      "notice": "Prices, connection limits, and content availability are confirmed before purchase. Ask about any trial offer when you enquire.",
+      "steps_eyebrow": "A SIMPLE START",
+      "steps_heading_line1": "From a question to",
+      "steps_heading_gradient": "your first watch.",
+      "steps_subtitle": "A little help finding the right fit, at every step.",
+      "step1_title": "Choose your plan",
+      "step1_text": "Start with a plan that suits the number of screens you want to use.",
+      "step2_title": "Confirm the details",
+      "step2_text": "Ask us about the price, your device, content availability, and the terms before you pay.",
+      "step3_title": "Get setup guidance",
+      "step3_text": "Our team can explain the appropriate app and activation steps for your device."
+    },
+    "channels": {
+      "eyebrow": "EXPLORE THE POSSIBILITIES",
+      "heading_line1": "Your next favourite.",
+      "heading_gradient": "Find it here.",
+      "intro": "Live television, film nights, match days, and something for the family. Browse our content categories and ask about the current lineup.",
+      "filter_aria": "Filter content categories",
+      "filter_all": "All content",
+      "browse_aria": "Browse content categories",
+      "notice": "Browse categories here, then contact us to confirm the channels and titles available with your plan and in your country.",
+      "countries_eyebrow": "ENTERTAINMENT ACROSS BORDERS",
+      "countries_heading_line1": "Tell us where",
+      "countries_heading_gradient": "you’re watching.",
+      "countries_subtitle": "Looking for content from home or somewhere new? Our team can help you check the options for your location.",
+      "ask_country": "Ask about your country"
+    },
+    "devices": {
+      "eyebrow": "BIG SCREENS. SMALL SCREENS. YOUR SCREENS.",
+      "heading_line1": "Find the right setup",
+      "heading_gradient": "for your screen.",
+      "intro": "Tell us your device model and where you’ll be watching. We’ll help you check compatibility and the appropriate player before you subscribe.",
+      "explore_steps": "Explore setup steps",
+      "check_device": "Check my device",
+      "grid_aria": "Device setup options",
+      "ask_setup": "Ask about setup",
+      "notice": "Compatibility varies by device model, operating system, player, and location. Confirm these details with support before purchasing a plan or installing a paid app.",
+      "setup_eyebrow": "GET READY TO WATCH",
+      "setup_heading_line1": "A few simple",
+      "setup_heading_gradient": "setup steps.",
+      "setup_subtitle": "Your exact instructions will depend on the device and player confirmed by our team.",
+      "step1_title": "Share your device",
+      "step1_text": "Send the device name, model, operating system, and country so we can check the right setup.",
+      "step2_title": "Choose a suitable player",
+      "step2_text": "Follow the installation instructions supplied for your confirmed device. Ask about any separate app costs.",
+      "step3_title": "Follow your activation guide",
+      "step3_text": "Enter the details provided privately by support. Keep your account credentials secure.",
+      "get_help": "Get setup help"
+    },
+    "reseller": {
+      "eyebrow": "LET’S TALK BUSINESS",
+      "heading_line1": "Explore a new",
+      "heading_gradient": "partnership.",
+      "intro": "Interested in becoming an Infinity Stream TV reseller? Tell us about your business and market, and we’ll discuss the program with you.",
+      "panel_eyebrow": "THE RESELLER PROGRAM",
+      "panel_heading_line1": "Start with",
+      "panel_heading_gradient": "a conversation.",
+      "panel_text": "We’ll help you understand the available reseller options, eligibility requirements, and the responsibilities involved.",
+      "feature1": "Discuss your market and customer needs",
+      "feature2": "Confirm pricing, access, and account limits",
+      "feature3": "Understand setup and support arrangements",
+      "feature4": "Review the agreement before committing",
+      "notice": "Program access and terms are confirmed individually. Submitting an enquiry does not automatically create a reseller account.",
+      "chat_cta": "Chat about reselling",
+      "form_heading": "Tell us about your business",
+      "form_text_static": "Add a few details to prepare a WhatsApp message for our team.",
+      "form_text_live": "Leave a few details and your preferred contact method."
+    },
+    "faq": {
+      "eyebrow": "A LITTLE CLARITY GOES A LONG WAY",
+      "heading_line1": "Good questions.",
+      "heading_gradient": "Clear answers.",
+      "intro": "From choosing a plan to setting up your screen, here are the things to know before you get started.",
+      "panel_heading_line1": "Let’s help you",
+      "panel_heading_gradient": "find the answer.",
+      "panel_text": "For questions about a particular device, plan, or channel, send our team the details so we can check your setup.",
+      "ask_whatsapp": "Ask on WhatsApp",
+      "setup_overview": "Setup overview",
+      "refund_enquiries": "Refund enquiries"
+    },
+    "contact": {
+      "eyebrow": "WE’RE HERE TO HELP",
+      "heading_line1": "Your next step starts",
+      "heading_gradient": "with a hello.",
+      "intro": "Ask about a plan, check a device, or get help with your setup. Share what you need and we’ll take it from there.",
+      "panel_eyebrow": "LET’S CONNECT",
+      "panel_heading_line1": "A conversation",
+      "panel_heading_gradient": "made simple.",
+      "panel_text": "WhatsApp is our main contact channel. Your message opens for you to review and send.",
+      "open_whatsapp": "Open WhatsApp",
+      "details_heading": "A few useful details",
+      "details_text": "For setup help, include your device model and player. For plan enquiries, tell us your country and how many screens you’d like to use.",
+      "read_faq": "Read the FAQ",
+      "explore_devices": "Explore device setup",
+      "form_heading_static": "Prepare your message",
+      "form_heading_live": "Send an enquiry",
+      "form_text_static": "Fill in the details below to create a WhatsApp draft you can review and send.",
+      "form_text_live": "Prefer to leave your details? Use the form below."
+    }
+  },
+  "legal": {
+    "intro_eyebrow": "THE DETAILS MATTER",
+    "nav_aria": "Policies",
+    "nav_contact": "Contact support",
+    "titles": {
+      "privacy": "Privacy policy",
+      "terms": "Terms of service",
+      "refund_policy": "Refund & cancellation"
+    },
+    "intro": {
+      "privacy": "How information shared through this website is used, and how to contact us about it.",
+      "terms": "What to know when using this website and enquiring about an Infinity Stream TV subscription.",
+      "refund_policy": "How to check the applicable terms and contact us about a cancellation or refund request."
+    },
+    "privacy": {
+      "heading_shared1": "Information you share",
+      "heading_info_used": "How enquiry information is used",
+      "heading_security": "Website security and cookies",
+      "static": {
+        "body1": "The contact and reseller forms prepare a WhatsApp draft using the details you enter, such as your name, country, contact details, selected plan, and message. The form does not send or store an enquiry on this website. You decide whether to send the prepared message in WhatsApp.",
+        "body2": "If you send the WhatsApp message, our team uses the information you share to respond to your enquiry, discuss subscription or reseller options, and provide related setup or support. Provide only the details needed to help with your request.",
+        "body3": "This version of the website prepares form messages in your browser and does not create an enquiry database or a form-security session cookie. The enquiry form does not ask for payment-card details."
+      },
+      "live": {
+        "body1": "When you submit a contact or reseller enquiry, we receive the information entered in the form. This may include your name, country, preferred contact method, contact details, selected plan, and message. Provide only the details needed to help with your request.",
+        "body2": "Information submitted through this website is used to respond to your enquiry, discuss subscription or reseller options, and provide related setup or support. Validated enquiries are saved in our enquiry database so they can be handled by the team.",
+        "body3": "This website uses an essential session cookie and form-security tokens to protect enquiry submissions. We do not ask for payment-card details through the enquiry forms."
+      },
+      "heading_whatsapp": "WhatsApp and external services",
+      "body_whatsapp": "WhatsApp links open a separate service. You review and send the message yourself. Information shared with WhatsApp is also subject to that service’s privacy practices. Other external links, if used, are governed by their respective providers.",
+      "heading_requests": "Your information and requests",
+      "body_requests": "Contact us if you want to ask about an enquiry you submitted, correct its details, or request its deletion. Include enough information to identify your request, but do not send passwords, account credentials, or payment-card information.",
+      "contact_cta": "Contact us about privacy"
+    },
+    "terms": {
+      "heading1": "Using this website",
+      "body1": "This website provides information about Infinity Stream TV, plan options, content categories, device setup, and ways to contact the team. An enquiry is a request for information; it does not itself create a subscription, process a payment, or issue account credentials.",
+      "heading2": "Confirm your subscription details",
+      "body2": "Before purchasing, confirm the current price, billing period, available content, supported devices, number of simultaneous connections, activation process, and applicable cancellation or refund terms directly with support.",
+      "heading3": "Availability and compatibility",
+      "body3": "Content and device options can vary by plan, location, device model, operating system, and player. Category images illustrate the type of content being discussed. Ask for confirmation of any specific channel, title, app, or device that matters to you.",
+      "heading4": "Trials and reseller arrangements",
+      "body4": "Trial availability, duration, and eligibility must be confirmed with support. Reseller enquiries are assessed separately, and any account access or commercial terms are provided only after the relevant arrangement is confirmed.",
+      "heading5": "Account and setup information",
+      "body5": "Keep any account details provided to you private. Follow the usage limits and setup instructions confirmed for your plan. Do not send account passwords or other sensitive credentials through the public enquiry form.",
+      "heading6": "Questions before purchase",
+      "body6": "If a detail is unclear, ask for written confirmation before paying. The subscription information confirmed during your enquiry should explain the service and terms you are agreeing to.",
+      "cta": "Discuss the terms"
+    },
+    "refund": {
+      "heading1": "Check the terms before you pay",
+      "body1": "The website does not process subscription payments. Contact support before purchasing to confirm whether a refund or cancellation is available for your selected plan, along with any eligibility conditions, deadlines, and payment arrangements.",
+      "heading2": "Request a cancellation or refund",
+      "body2": "Contact the team on WhatsApp with your plan name, purchase or activation date, and a brief explanation of your request. Include an order or transaction reference if you have one. Do not send full payment-card details, passwords, or private account credentials.",
+      "heading3": "If you are having a setup issue",
+      "body3": "Share your device model, player, and a description of the problem so support can review the setup. You may also request clarification of the cancellation or refund terms that were confirmed when you purchased.",
+      "heading4": "What happens next",
+      "body4": "The team will review your request against the terms agreed for your subscription and explain the available next steps. Submitting a request through this website or WhatsApp does not automatically confirm a refund or cancellation.",
+      "cta": "Discuss a refund request"
+    }
+  },
+  "error": {
+    "eyebrow": "LET’S FIND YOUR WAY",
+    "default_title": "Page not found",
+    "default_message": "We couldn’t find that page. Head back to the homepage or contact our team for help.",
+    "back_home": "Back to home",
+    "contact_support": "Contact support",
+    "titles": {
+      "404": "Page not found",
+      "413": "Enquiry too large",
+      "500": "Something went wrong"
+    },
+    "messages": {
+      "404": "The page you are looking for is not available. Explore our plans or contact the team.",
+      "413": "Please keep your message under 2,000 characters and submit the form again.",
+      "500": "Please try again in a moment or contact us directly on WhatsApp.",
+      "generic": "Please try again or contact our team on WhatsApp."
+    }
+  },
+  "components": {
+    "pricing": {
+      "billing_group_aria": "Choose a billing period",
+      "billing_period_aria": "Billing period",
+      "badge_featured": "Explore Premium",
+      "price_cta_enquire": "Let’s find your plan",
+      "price_cta_ask": "Ask us for current pricing",
+      "cta_reseller": "Enquire about reselling",
+      "cta_default": "Chat on WhatsApp",
+      "note": "Current prices, available content, and connection limits are confirmed with you before purchase."
+    },
+    "categories": {
+      "grid_aria": "Content categories"
+    }
+  },
+  "form": {
+    "heading_reseller": "Tell us about your business",
+    "heading_contact": "How can we help?",
+    "subtitle": "Share a few details, then review your enquiry in WhatsApp.",
+    "name_label": "Your name",
+    "name_placeholder": "Your full name",
+    "country_label": "Country",
+    "country_placeholder": "Where will you be watching?",
+    "contact_method_label": "Preferred contact",
+    "contact_whatsapp": "WhatsApp",
+    "contact_email": "Email",
+    "contact_label": "Phone number or email",
+    "contact_placeholder": "Include your country code",
+    "message_label": "Your message",
+    "message_placeholder": "Tell us about your device, preferred content, or the plan you’re interested in.",
+    "privacy_static": "Your details are included in a WhatsApp draft. This website does not save this form.",
+    "privacy_live": "Your enquiry is saved so our team can assist you.",
+    "privacy_policy_link": "privacy policy",
+    "submit": "Continue to WhatsApp",
+    "honeypot_label": "Website"
+  },
+  "forms": {
+    "errors": {
+      "name_length": "{label} must be between {minimum} and {maximum} characters.",
+      "country_length": "{label} must be between {minimum} and {maximum} characters.",
+      "message_length": "{label} must be between {minimum} and {maximum} characters.",
+      "control_chars": "Please remove unsupported control characters.",
+      "contact_method": "Choose WhatsApp or email as your preferred contact method.",
+      "contact_phone": "Enter your WhatsApp number with its country code, for example +8801874608217.",
+      "contact_email": "Enter a valid email address.",
+      "plan": "Choose one of the available enquiry options.",
+      "rate_limited": "You have made several enquiries. Please wait a few minutes, or contact us directly on WhatsApp.",
+      "spam": "We could not accept this enquiry. Please contact us directly on WhatsApp.",
+      "csrf": "This form has expired or could not be verified. Please refresh the page and try again."
+    },
+    "labels": {
+      "name": "Your name",
+      "country": "Your country",
+      "message": "Your message"
+    },
+    "success_message": "Your enquiry was saved. Review and send it in WhatsApp."
+  }
+}
