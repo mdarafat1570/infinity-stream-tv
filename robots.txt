@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /enquiry
+Sitemap: https://mdarafat1570.github.io/infinity-stream-tv/sitemap.xml
