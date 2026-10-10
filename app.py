@@ -32,6 +32,7 @@ PAGES = {
     "privacy": ("/privacy", "Privacy Information | Infinity Stream TV", "Learn how this website handles enquiry information, essential cookies and WhatsApp links."),
     "terms": ("/terms", "Website Terms | Infinity Stream TV", "Read the website enquiry terms and learn which subscription details to confirm before purchasing."),
     "refund-policy": ("/refund-policy", "Cancellation & Refund Information | Infinity Stream TV", "Find out how to confirm cancellation and refund terms before agreeing to an Infinity Stream TV subscription."),
+    "impressum": ("/impressum", "Impressum | Infinity Stream TV", "Legal notice and statement of ownership for the Infinity Stream TV website."),
 }
 
 csrf = CSRFProtect()

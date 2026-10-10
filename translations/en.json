@@ -48,7 +48,8 @@
     "copyright": "© {year} Infinity Stream TV. All rights reserved.",
     "privacy": "Privacy",
     "terms": "Terms",
-    "refund_policy": "Refund policy"
+    "refund_policy": "Refund policy",
+    "impressum": "Impressum"
   },
   "hero": {
     "eyebrow": "ENTERTAINMENT, REIMAGINED",
@@ -266,12 +267,14 @@
     "titles": {
       "privacy": "Privacy policy",
       "terms": "Terms of service",
-      "refund_policy": "Refund & cancellation"
+      "refund_policy": "Refund & cancellation",
+      "impressum": "Legal notice (Impressum)"
     },
     "intro": {
       "privacy": "How information shared through this website is used, and how to contact us about it.",
       "terms": "What to know when using this website and enquiring about an Infinity Stream TV subscription.",
-      "refund_policy": "How to check the applicable terms and contact us about a cancellation or refund request."
+      "refund_policy": "How to check the applicable terms and contact us about a cancellation or refund request.",
+      "impressum": "A statement of ownership and provider identification for this website, published for transparency."
     },
     "privacy": {
       "heading_shared1": "Information you share",
@@ -336,6 +339,16 @@
       "heading_governing": "Governing law",
       "body_governing": "Refund and cancellation requests are handled according to the terms confirmed with you at the time of purchase. This policy is governed by the laws of {jurisdiction}.",
       "cta": "Discuss a refund request"
+    },
+    "impressum": {
+      "heading_provider": "Service provider",
+      "body_provider": "This website is published by {name}, based in {jurisdiction}. This page is provided voluntarily as a transparent statement of ownership, including for visitors in countries such as Austria, Germany and Switzerland where a notice like this is often expected.",
+      "heading_contact": "Contact",
+      "heading_responsible": "Person responsible for content",
+      "body_responsible": "{name} is responsible for the content published on this website. For any correction, takedown, or legal request concerning this website’s content, use the contact details above.",
+      "heading_disclaimer": "Disclaimer",
+      "body_disclaimer": "Despite careful attention to accuracy, we accept no liability for the content of external links; the operators of linked pages are solely responsible for their own content. This notice does not replace formal legal advice and does not assert any specific regulatory status in any jurisdiction.",
+      "cta": "Contact us about this notice"
     }
   },
   "error": {

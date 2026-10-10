@@ -57,7 +57,7 @@
       <div class="footer-links"><h2>{{ t('footer.help_heading') }}</h2><a href="/devices">{{ t('footer.help_apps_devices') }}</a><a href="/devices#setup-guide">{{ t('footer.help_setup_guide') }}</a><a href="/faq">{{ t('footer.help_faq') }}</a><a href="/contact">{{ t('footer.help_contact') }}</a></div>
       <div class="footer-contact"><h2>{{ t('footer.contact_heading') }}</h2><p>{{ t('footer.contact_copy') }}</p><a href="{{ whatsapp_url() }}" data-whatsapp="general" target="_blank" rel="noopener noreferrer">{{ icon('whatsapp') }} {{ site.settings.whatsapp_display }}</a></div>
     </div>
-    <div class="container footer-bottom"><span>{{ t('footer.copyright', year=current_year) }}</span><div><a href="/privacy">{{ t('footer.privacy') }}</a><a href="/terms">{{ t('footer.terms') }}</a><a href="/refund-policy">{{ t('footer.refund_policy') }}</a></div></div>
+    <div class="container footer-bottom"><span>{{ t('footer.copyright', year=current_year) }}</span><div><a href="/privacy">{{ t('footer.privacy') }}</a><a href="/terms">{{ t('footer.terms') }}</a><a href="/refund-policy">{{ t('footer.refund_policy') }}</a><a href="/impressum">{{ t('footer.impressum') }}</a></div></div>
   </footer>
   <a class="floating-whatsapp" href="{{ whatsapp_url() }}" data-whatsapp="general" aria-label="{{ t('footer.whatsapp_chat_aria') }}" target="_blank" rel="noopener noreferrer">{{ icon('whatsapp') }}</a>
   <script id="site-config" type="application/json">{{ site|tojson }}</script>

@@ -192,13 +192,13 @@
   </div>
 </section>
 
-{% elif page_slug in ['privacy', 'terms', 'refund-policy'] %}
-{% set legal_titles = {'privacy': t('legal.titles.privacy'), 'terms': t('legal.titles.terms'), 'refund-policy': t('legal.titles.refund_policy')} %}
+{% elif page_slug in ['privacy', 'terms', 'refund-policy', 'impressum'] %}
+{% set legal_titles = {'privacy': t('legal.titles.privacy'), 'terms': t('legal.titles.terms'), 'refund-policy': t('legal.titles.refund_policy'), 'impressum': t('legal.titles.impressum')} %}
 <section class="page-intro">
   <div class="container">
     <span class="eyebrow">{{ t('legal.intro_eyebrow') }}</span>
     <h1>{{ legal_titles[page_slug] }}</h1>
-    <p>{% if page_slug == 'privacy' %}{{ t('legal.intro.privacy') }}{% elif page_slug == 'terms' %}{{ t('legal.intro.terms') }}{% else %}{{ t('legal.intro.refund_policy') }}{% endif %}</p>
+    <p>{% if page_slug == 'privacy' %}{{ t('legal.intro.privacy') }}{% elif page_slug == 'terms' %}{{ t('legal.intro.terms') }}{% elif page_slug == 'refund-policy' %}{{ t('legal.intro.refund_policy') }}{% else %}{{ t('legal.intro.impressum') }}{% endif %}</p>
   </div>
 </section>
 {% set legal_name = loc(site.settings, 'legal_entity_name', locale) %}
@@ -264,7 +264,7 @@
       <p>{{ t('legal.terms.body_changes') }}</p>
       <p>{{ t('legal.contact_methods', email=site.settings.business_email) }}</p>
       <a class="btn btn-secondary" href="/contact">{{ t('legal.terms.cta') }} {{ icon('arrow-right', 'icon-flip-rtl') }}</a>
-      {% else %}
+      {% elif page_slug == 'refund-policy' %}
       <h2>{{ t('legal.refund.heading1') }}</h2>
       <p>{{ t('legal.refund.body1') }}</p>
       <h2>{{ t('legal.refund.heading2') }}</h2>
@@ -277,6 +277,16 @@
       <p>{{ t('legal.refund.body_governing', jurisdiction=legal_jurisdiction) }}</p>
       <p>{{ t('legal.contact_methods', email=site.settings.business_email) }}</p>
       <a class="btn btn-primary" href="https://wa.me/{{ site.settings.whatsapp_phone }}" data-whatsapp="refund" target="_blank" rel="noopener noreferrer">{{ icon('whatsapp') }} {{ t('legal.refund.cta') }} {{ icon('arrow-right', 'icon-flip-rtl') }}</a>
+      {% else %}
+      <h2>{{ t('legal.impressum.heading_provider') }}</h2>
+      <p>{{ t('legal.impressum.body_provider', name=legal_name, jurisdiction=legal_jurisdiction) }}</p>
+      <h2>{{ t('legal.impressum.heading_contact') }}</h2>
+      <p>{{ t('legal.contact_methods', email=site.settings.business_email) }}</p>
+      <h2>{{ t('legal.impressum.heading_responsible') }}</h2>
+      <p>{{ t('legal.impressum.body_responsible', name=legal_name) }}</p>
+      <h2>{{ t('legal.impressum.heading_disclaimer') }}</h2>
+      <p>{{ t('legal.impressum.body_disclaimer') }}</p>
+      <a class="btn btn-secondary" href="/contact">{{ t('legal.impressum.cta') }} {{ icon('arrow-right', 'icon-flip-rtl') }}</a>
       {% endif %}
     </article>
   </div>
