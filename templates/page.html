@@ -201,6 +201,9 @@
     <p>{% if page_slug == 'privacy' %}{{ t('legal.intro.privacy') }}{% elif page_slug == 'terms' %}{{ t('legal.intro.terms') }}{% else %}{{ t('legal.intro.refund_policy') }}{% endif %}</p>
   </div>
 </section>
+{% set legal_name = loc(site.settings, 'legal_entity_name', locale) %}
+{% set legal_jurisdiction = loc(site.settings, 'legal_jurisdiction', locale) %}
+{% set legal_date = loc(site.settings, 'legal_last_updated', locale) %}
 <section class="section section-compact">
   <div class="container legal-layout">
     <nav class="legal-nav" aria-label="{{ t('legal.nav_aria') }}">
@@ -208,6 +211,7 @@
       <a href="/contact">{{ t('legal.nav_contact') }} {{ icon('arrow-right', 'icon-flip-rtl') }}</a>
     </nav>
     <article class="legal-content">
+      <p class="notice"><strong>{{ t('legal.last_updated', date=legal_date) }}</strong> &middot; {{ t('legal.operator_notice', name=legal_name, jurisdiction=legal_jurisdiction) }}</p>
       {% if page_slug == 'privacy' %}
       <h2>{{ t('legal.privacy.heading_shared1') }}</h2>
       {% if is_static %}
@@ -225,8 +229,17 @@
       {% endif %}
       <h2>{{ t('legal.privacy.heading_whatsapp') }}</h2>
       <p>{{ t('legal.privacy.body_whatsapp') }}</p>
+      <h2>{{ t('legal.privacy.heading_retention') }}</h2>
+      <p>{{ t('legal.privacy.body_retention') }}</p>
+      <h2>{{ t('legal.privacy.heading_children') }}</h2>
+      <p>{{ t('legal.privacy.body_children') }}</p>
+      <h2>{{ t('legal.privacy.heading_international') }}</h2>
+      <p>{{ t('legal.privacy.body_international', jurisdiction=legal_jurisdiction) }}</p>
       <h2>{{ t('legal.privacy.heading_requests') }}</h2>
       <p>{{ t('legal.privacy.body_requests') }}</p>
+      <h2>{{ t('legal.privacy.heading_changes') }}</h2>
+      <p>{{ t('legal.privacy.body_changes') }}</p>
+      <p>{{ t('legal.contact_methods', email=site.settings.business_email) }}</p>
       <a class="btn btn-secondary" href="https://wa.me/{{ site.settings.whatsapp_phone }}" data-whatsapp="privacy" target="_blank" rel="noopener noreferrer">{{ t('legal.privacy.contact_cta') }} {{ icon('arrow-right', 'icon-flip-rtl') }}</a>
       {% elif page_slug == 'terms' %}
       <h2>{{ t('legal.terms.heading1') }}</h2>
@@ -241,6 +254,15 @@
       <p>{{ t('legal.terms.body5') }}</p>
       <h2>{{ t('legal.terms.heading6') }}</h2>
       <p>{{ t('legal.terms.body6') }}</p>
+      <h2>{{ t('legal.terms.heading_liability') }}</h2>
+      <p>{{ t('legal.terms.body_liability', name=legal_name) }}</p>
+      <h2>{{ t('legal.terms.heading_governing_law') }}</h2>
+      <p>{{ t('legal.terms.body_governing_law', jurisdiction=legal_jurisdiction) }}</p>
+      <h2>{{ t('legal.terms.heading_severability') }}</h2>
+      <p>{{ t('legal.terms.body_severability') }}</p>
+      <h2>{{ t('legal.terms.heading_changes') }}</h2>
+      <p>{{ t('legal.terms.body_changes') }}</p>
+      <p>{{ t('legal.contact_methods', email=site.settings.business_email) }}</p>
       <a class="btn btn-secondary" href="/contact">{{ t('legal.terms.cta') }} {{ icon('arrow-right', 'icon-flip-rtl') }}</a>
       {% else %}
       <h2>{{ t('legal.refund.heading1') }}</h2>
@@ -251,6 +273,9 @@
       <p>{{ t('legal.refund.body3') }}</p>
       <h2>{{ t('legal.refund.heading4') }}</h2>
       <p>{{ t('legal.refund.body4') }}</p>
+      <h2>{{ t('legal.refund.heading_governing') }}</h2>
+      <p>{{ t('legal.refund.body_governing', jurisdiction=legal_jurisdiction) }}</p>
+      <p>{{ t('legal.contact_methods', email=site.settings.business_email) }}</p>
       <a class="btn btn-primary" href="https://wa.me/{{ site.settings.whatsapp_phone }}" data-whatsapp="refund" target="_blank" rel="noopener noreferrer">{{ icon('whatsapp') }} {{ t('legal.refund.cta') }} {{ icon('arrow-right', 'icon-flip-rtl') }}</a>
       {% endif %}
     </article>

@@ -260,6 +260,9 @@
     "intro_eyebrow": "THE DETAILS MATTER",
     "nav_aria": "Policies",
     "nav_contact": "Contact support",
+    "operator_notice": "This website is operated by {name}, based in {jurisdiction} (“we”, “us”, “our”). These policies are governed by the laws of {jurisdiction}. If you are visiting from another country, you remain responsible for complying with your own local laws, and nothing here limits consumer protections that cannot be waived under the law of your own country.",
+    "last_updated": "Last updated: {date}",
+    "contact_methods": "Email {email} or message us on WhatsApp.",
     "titles": {
       "privacy": "Privacy policy",
       "terms": "Terms of service",
@@ -286,8 +289,16 @@
       },
       "heading_whatsapp": "WhatsApp and external services",
       "body_whatsapp": "WhatsApp links open a separate service. You review and send the message yourself. Information shared with WhatsApp is also subject to that service’s privacy practices. Other external links, if used, are governed by their respective providers.",
+      "heading_retention": "How long we keep information",
+      "body_retention": "Enquiry records are kept for up to 90 days and are then deleted as part of routine data minimization, unless we need to keep specific information longer to meet a legal obligation or resolve a dispute. Rate-limit records used to prevent form abuse are deleted automatically once their short window has passed.",
+      "heading_children": "Children’s privacy",
+      "body_children": "This website and its enquiry forms are intended for adults who are able to enter into a subscription enquiry. We do not knowingly collect information from children, and we ask that children do not submit the enquiry form.",
+      "heading_international": "International visitors",
+      "body_international": "This website can be accessed from outside {jurisdiction}. Information you submit is processed and stored in line with this policy regardless of where you are visiting from. If the law of your own country gives you additional data protection rights, contact us using the details below and we will address your request as far as we reasonably can.",
       "heading_requests": "Your information and requests",
       "body_requests": "Contact us if you want to ask about an enquiry you submitted, correct its details, or request its deletion. Include enough information to identify your request, but do not send passwords, account credentials, or payment-card information.",
+      "heading_changes": "Changes to this policy",
+      "body_changes": "We may update this policy as the website or our practices change. The version shown here is the current one; check back periodically if you want to review it again.",
       "contact_cta": "Contact us about privacy"
     },
     "terms": {
@@ -303,6 +314,14 @@
       "body5": "Keep any account details provided to you private. Follow the usage limits and setup instructions confirmed for your plan. Do not send account passwords or other sensitive credentials through the public enquiry form.",
       "heading6": "Questions before purchase",
       "body6": "If a detail is unclear, ask for written confirmation before paying. The subscription information confirmed during your enquiry should explain the service and terms you are agreeing to.",
+      "heading_liability": "Limitation of liability",
+      "body_liability": "This website provides information and an enquiry channel; it does not guarantee uninterrupted access, specific content availability, or that any particular device or player will work as expected. To the fullest extent permitted by law, {name} is not liable for indirect, incidental, or consequential losses arising from your use of this website or any subscription arranged through it. Nothing in these terms limits liability that cannot be excluded under the law of your own country.",
+      "heading_governing_law": "Governing law and disputes",
+      "body_governing_law": "These terms are governed by the laws of {jurisdiction}. If a disagreement arises, contact us first so we can try to resolve it directly; if it cannot be resolved this way, the courts of {jurisdiction} have jurisdiction, without limiting any mandatory right you may have to bring a claim in your own country under local consumer protection law.",
+      "heading_severability": "If part of these terms cannot be enforced",
+      "body_severability": "If any part of these terms is found unenforceable, the remaining terms continue to apply in full.",
+      "heading_changes": "Changes to these terms",
+      "body_changes": "We may update these terms from time to time as the website or our services change. Continuing to use this website after an update means you accept the current version.",
       "cta": "Discuss the terms"
     },
     "refund": {
@@ -314,6 +333,8 @@
       "body3": "Share your device model, player, and a description of the problem so support can review the setup. You may also request clarification of the cancellation or refund terms that were confirmed when you purchased.",
       "heading4": "What happens next",
       "body4": "The team will review your request against the terms agreed for your subscription and explain the available next steps. Submitting a request through this website or WhatsApp does not automatically confirm a refund or cancellation.",
+      "heading_governing": "Governing law",
+      "body_governing": "Refund and cancellation requests are handled according to the terms confirmed with you at the time of purchase. This policy is governed by the laws of {jurisdiction}.",
       "cta": "Discuss a refund request"
     }
   },

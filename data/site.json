@@ -13,7 +13,13 @@
     "trial_hours": null,
     "availability_note": "Channel availability, device support and plan details are confirmed before you subscribe.",
     "availability_note_ar": "يتم تأكيد توفر القنوات ودعم الأجهزة وتفاصيل الباقات قبل الاشتراك.",
-    "business_email": null,
+    "business_email": "support.infinitystreamtv@gmail.com",
+    "legal_entity_name": "Infinity Stream TV",
+    "legal_entity_name_ar": "إنفينيتي ستريم تي في",
+    "legal_jurisdiction": "Saudi Arabia",
+    "legal_jurisdiction_ar": "المملكة العربية السعودية",
+    "legal_last_updated": "October 2026",
+    "legal_last_updated_ar": "أكتوبر 2026",
     "legal_reviewed": false
   },
   "billing_periods": [
